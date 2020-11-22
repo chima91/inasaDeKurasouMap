@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>地図検索 - いなさで暮らそうマップ</title>
+    <link rel="stylesheet" href="./css/map.css" type="text/css" />
+</head>
+<body>
+    <header>
+        <a id="bousai-link" href="https://hamabosai.maps.arcgis.com/apps/webappviewer/index.html?id=d4070f31679d487ab858eb38d1d6ae3a" target="_blank">浜松市防災マップ</a>
+        <a id="logo" href="./index.html"><img src="./img/logo-pc.png"></a>
+        <div id="hamburger"><span></span><span></span><span></span></div>
+        <nav class="menu">
+            <ul>
+                <li class="menu-item">メニュー</li>
+                <li class="menu-item"><a href="./index.html">トップページ</a></li>
+                <li class="menu-item"><a href="./aaaaaaa.html">いなさみどりバスの経路探索</a></li>
+                <li class="menu-item"><a href="./aaaaaaa.html">遠鉄バスなどの乗換案内</a></li>
+                <li class="menu-item"><a href="./aaaaaaa.html">社会資源の一覧</a></li>
+                <li class="menu-item"><a href="https://hamabosai.maps.arcgis.com/apps/webappviewer/index.html?id=d4070f31679d487ab858eb38d1d6ae3a" target="_blank">浜松市防災マップ</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="menu-black-close"></div>
+
+    <div id="inasa-map"></div>
+
+    <div id="checkbox">
+        <input id="check-close" type="button" value="閉じる">
+        <form name="form1">
+            <label><input type="checkbox" name="dekirukoto" value="買い物" checked>買い物</label><br>
+            <label><input type="checkbox" name="dekirukoto" value="集う" checked>集う</label><br>
+            <label><input type="checkbox" name="dekirukoto" value="気分転換" checked>気分転換</label><br>
+            <label><input type="checkbox" name="dekirukoto" value="体を動かす" checked>体を動かす</label><br>
+            <label><input type="checkbox" name="dekirukoto" value="刺激を受ける" checked>刺激を受ける</label><br>
+            <label><input type="checkbox" name="dekirukoto" value="食事" checked>食事</label><br>
+            <label><input type="checkbox" name="dekirukoto" value="介護・医療サービスを利用する" checked>介護・医療サービスを利用する</label><br>
+            <label><input type="checkbox" name="dekirukoto" value="出かける" checked>出かける</label><br>
+            <label><input type="checkbox" name="dekirukoto" value="ボランティア" checked>ボランティア</label><br>
+            <label><input type="checkbox" name="dekirukoto" value="相談する" checked>相談する</label>
+        </form>
+        <input type="button" value="すべてにチェックを入れる" onclick="checkAll()">
+        <input type="button" value="すべてのチェックを外す" onclick="checkNone()"><br>
+        <input type="button" value="検索する" onclick="dkrSearch()">
+        <p id="hit-count">件の社会資源がヒットしました</p>
+        <hr>
+        <ul id="check-result"></ul>
+    </div>
+
+    <input id="current-location-button" type="button" value="現在地を取得" onclick="getCurrentLocation()">
+
+    <footer>
+        <small>Copyright&copy; 2020-2021 静岡大学 杉山岳弘研究室 All Rights Reserved.</small>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./js/map.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDV05EwCTbPPsWFDyhspJW-OoRDu13U3TI&callback=initMap" async defer></script>
+</body>
+</html>
