@@ -29,22 +29,28 @@
 
     <div id="checkbox">
         <input id="check-close" type="button" value="閉じる">
-        <form name="form1">
-            <label><input type="checkbox" name="dekirukoto" value="買い物" checked>買い物</label><br>
-            <label><input type="checkbox" name="dekirukoto" value="集う" checked>集う</label><br>
-            <label><input type="checkbox" name="dekirukoto" value="気分転換" checked>気分転換</label><br>
-            <label><input type="checkbox" name="dekirukoto" value="体を動かす" checked>体を動かす</label><br>
-            <label><input type="checkbox" name="dekirukoto" value="刺激を受ける" checked>刺激を受ける</label><br>
-            <label><input type="checkbox" name="dekirukoto" value="食事" checked>食事</label><br>
-            <label><input type="checkbox" name="dekirukoto" value="介護・医療サービスを利用する" checked>介護・医療サービスを利用する</label><br>
-            <label><input type="checkbox" name="dekirukoto" value="出かける" checked>出かける</label><br>
-            <label><input type="checkbox" name="dekirukoto" value="ボランティア" checked>ボランティア</label><br>
-            <label><input type="checkbox" name="dekirukoto" value="相談する" checked>相談する</label>
-        </form>
-        <input type="button" value="すべてにチェックを入れる" onclick="checkAll()">
-        <input type="button" value="すべてのチェックを外す" onclick="checkNone()"><br>
-        <input type="button" value="検索する" onclick="dkrSearch()">
-        <p id="hit-count">件の社会資源がヒットしました</p>
+
+        <input id="acd-check" type="checkbox">
+        <label id="acd-label" for="acd-check">「できること検索」を開閉する</label>
+        <div id="acd-content">
+            <form name="form1">
+                <label><input type="checkbox" name="dekirukoto" value="買い物" checked>買い物</label><br>
+                <label><input type="checkbox" name="dekirukoto" value="集う" checked>集う</label><br>
+                <label><input type="checkbox" name="dekirukoto" value="気分転換" checked>気分転換</label><br>
+                <label><input type="checkbox" name="dekirukoto" value="体を動かす" checked>体を動かす</label><br>
+                <label><input type="checkbox" name="dekirukoto" value="刺激を受ける" checked>刺激を受ける</label><br>
+                <label><input type="checkbox" name="dekirukoto" value="食事" checked>食事</label><br>
+                <label><input type="checkbox" name="dekirukoto" value="介護・医療サービスを利用する" checked>介護・医療サービスを利用する</label><br>
+                <label><input type="checkbox" name="dekirukoto" value="出かける" checked>出かける</label><br>
+                <label><input type="checkbox" name="dekirukoto" value="ボランティア" checked>ボランティア</label><br>
+                <label><input type="checkbox" name="dekirukoto" value="相談する" checked>相談する</label>
+            </form>
+            <input type="button" value="すべてにチェック" onclick="checkAll()">
+            <input type="button" value="すべてのチェックを外す" onclick="checkNone()"><br>
+            <input type="button" value="検索する" onclick="dkrSearch()">
+        </div>
+
+        <p id="hit-count"></p>
         <hr>
         <ul id="check-result"></ul>
     </div>

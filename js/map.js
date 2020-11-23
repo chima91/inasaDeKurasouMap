@@ -41,7 +41,7 @@ function initMap() {
         });
     }
 
-    document.getElementById('hit-count').textContent = `${markers.length}件の社会資源がヒットしました`;
+    document.getElementById('hit-count').textContent = `引佐町には${markers.length}件の社会資源があります！`;
 }
 
 $(function() {
@@ -131,16 +131,12 @@ function dkrSearch() {
     let checkResultUl = '';
     for(let h = 0; h < arrayList.length; h++) {
         for(let i = 0; i < arrayList[h].length; i++, dkrSearchCount++) {
-            if((arrayList[h][i].dekirukotoArray.includes('介護・医療サービスを利用する')) && (dekirukotoList[6].checked)) {
+            if(((arrayList[h][i].dekirukotoArray.includes('買い物')) && (dekirukotoList[0].checked)) || ((arrayList[h][i].dekirukotoArray.includes('集う')) && (dekirukotoList[1].checked)) || ((arrayList[h][i].dekirukotoArray.includes('気分転換')) && (dekirukotoList[2].checked)) || ((arrayList[h][i].dekirukotoArray.includes('体を動かす')) && (dekirukotoList[3].checked)) || ((arrayList[h][i].dekirukotoArray.includes('刺激を受ける')) && (dekirukotoList[4].checked)) || ((arrayList[h][i].dekirukotoArray.includes('食事')) && (dekirukotoList[5].checked)) || ((arrayList[h][i].dekirukotoArray.includes('介護・医療サービスを利用する')) && (dekirukotoList[6].checked)) || ((arrayList[h][i].dekirukotoArray.includes('出かける')) && (dekirukotoList[7].checked)) || ((arrayList[h][i].dekirukotoArray.includes('ボランティア')) && (dekirukotoList[8].checked)) || ((arrayList[h][i].dekirukotoArray.includes('相談する')) && (dekirukotoList[9].checked))) {
                 markers[dkrSearchCount].setVisible(true);
             } else {
                 markers[dkrSearchCount].setVisible(false);
             }
-            if((arrayList[h][i].dekirukotoArray.includes('買い物')) && (dekirukotoList[0].checked)) {
-                markers[dkrSearchCount].setVisible(true);
-            } else {
-                markers[dkrSearchCount].setVisible(false);
-            }
+
             if(markers[dkrSearchCount].getVisible()) {
                 visibleCount++;
                 checkResultUl += `<li>${arrayList[h][i].content}</li><hr>`;

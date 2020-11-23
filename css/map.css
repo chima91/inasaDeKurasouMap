@@ -139,7 +139,8 @@ header {
     background-color: rgba(120, 120, 120, 0.8);
     font-size: 12px;
     display: inline-block;
-    max-width: 275px;
+    max-width: 90%;
+    max-height: 80%;
     padding: 5px;
     position: absolute;
     top: 85px;
@@ -151,11 +152,33 @@ header {
     margin: 5px;
 }
 #check-result {
-    max-height: 200px;
+    max-height: 150px;
     overflow-y: scroll;
 }
 .check-open ~ * {
     display: none;
+}
+#acd-check {
+    display: none;
+}
+#acd-label {
+    background: #333;
+    color: #fff;
+    margin-bottom: 1px;
+    padding: 5px;
+}
+#acd-content {
+    height: 0;
+    opacity: 0;
+    padding: 0 10px;
+    transition: .5s;
+    visibility: hidden;
+}
+#acd-check:checked + #acd-label + #acd-content {
+    height: 300px;
+    opacity: 1;
+    padding: 10px;
+    visibility: visible;
 }
 
 #current-location-button {
@@ -194,10 +217,15 @@ footer {
     }
 
     #checkbox {
-        width: auto;
+        max-width: 400px;
     }
-
     #checkbox input {
-        margin: 7px 5px;
+        margin: 6px 5px;
+    }
+    #check-result {
+        max-height: 200px;
+    }
+    #acd-check:checked + #acd-label + #acd-content {
+        height: 330px;
     }
 }
