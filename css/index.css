@@ -116,7 +116,6 @@ header {
 }
 
 .menu li {
-    padding: 0 25px;
     border-top: 1px solid lightgray;
 }
 .menu li:first-child {
@@ -127,10 +126,31 @@ header {
     font-size: 12px;
     border-top: none;
 }
+.menu li a {
+    display: block;
+    padding: 0 25px;
+}
 /* ここまでヘッダー関係 */
 
-#to-map {
+#description-h1 {
+    text-align: center;
+    margin: 50px 0;
+}
+#description-box {
+    text-align: center;
+}
+#description-box p {
     display: inline-block;
+    text-align: left;
+}
+
+#to-map {
+    display: block;
+    margin: 30px auto;
+    width:  100px;
+    text-align: center;
+    position: relative;
+    z-index: 0; /* #menu-black-closeと同じ階層に配置するため。 */
     padding: 20px;
     color: white;
     background-color: green;
