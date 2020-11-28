@@ -116,7 +116,6 @@ header {
 }
 
 .menu li {
-    padding: 0 25px;
     border-top: 1px solid lightgray;
 }
 .menu li:first-child {
@@ -126,6 +125,10 @@ header {
     line-height: 40px;  /* headerに指定したline-heightの影響を打ち消す。 */
     font-size: 12px;
     border-top: none;
+}
+.menu li a {
+    display: block;
+    padding: 0 25px;
 }
 /* ここまでヘッダー関係 */
 
@@ -145,7 +148,7 @@ header {
     position: absolute;
     top: 85px;
     left: 15px;
-    z-index: 1; /* 「現在地を取得」より前に出すため。 */
+    z-index: 0; /* 「現在地を取得」より前に出すため。 */
 }
 #checkbox input {
     font-size: 12px;
@@ -171,8 +174,8 @@ header {
     height: 0;
     opacity: 0;
     padding: 0 10px;
-    transition: .5s;
     visibility: hidden;
+    transition: .5s;
 }
 #acd-check:checked + #acd-label + #acd-content {
     height: 300px;
