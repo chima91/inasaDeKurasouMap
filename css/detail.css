@@ -132,64 +132,6 @@ header {
 }
 /* ここまでヘッダー関係 */
 
-#inasa-map {
-    width: 100vw;
-    height: calc(100vh - (70px + 30px));
-}
-
-#checkbox {
-    color: aliceblue;
-    background-color: rgba(120, 120, 120, 0.8);
-    font-size: 12px;
-    display: inline-block;
-    max-width: 90%;
-    max-height: 80%;
-    padding: 5px;
-    position: absolute;
-    top: 85px;
-    left: 15px;
-    z-index: 1; /* 「現在地を取得」より前に出すため。 */
-}
-#checkbox input {
-    font-size: 12px;
-    margin: 5px;
-}
-#check-result {
-    max-height: 150px;
-    overflow-y: scroll;
-}
-.check-open ~ * {
-    display: none;
-}
-#acd-check {
-    display: none;
-}
-#acd-label {
-    background: #333;
-    color: #fff;
-    margin-bottom: 1px;
-    padding: 5px;
-}
-#acd-content {
-    height: 0;
-    opacity: 0;
-    padding: 0 10px;
-    visibility: hidden;
-    transition: .5s;
-}
-#acd-check:checked + #acd-label + #acd-content {
-    height: 300px;
-    opacity: 1;
-    padding: 10px;
-    visibility: visible;
-}
-
-#current-location-button {
-    position: absolute;
-    bottom: 150px;
-    right: 10px;
-}
-
 footer {
     text-align: center;
     height: 30px;
@@ -217,18 +159,5 @@ footer {
 
     #hamburger {
         right: 35px;
-    }
-
-    #checkbox {
-        max-width: 400px;
-    }
-    #checkbox input {
-        margin: 6px 5px;
-    }
-    #check-result {
-        max-height: 200px;
-    }
-    #acd-check:checked + #acd-label + #acd-content {
-        height: 330px;
     }
 }

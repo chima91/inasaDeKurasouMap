@@ -27,7 +27,7 @@ function initMap() {
                     // label: jsonArray[h][i]['ラベル']
                 });
                 infoWindows[count] = new google.maps.InfoWindow({
-                    content: `<b>${jsonArray[h][i]['名称']}</b><p>${jsonArray[h][i]['住所']}</p><a href="./detail${count}.php" style="color: #5341d3">詳細ページ</a>`,
+                    content: `<b>${jsonArray[h][i]['名称']}</b><p>${jsonArray[h][i]['住所']}</p><a href="./detail.php?id=${jsonArray[h][i]['id']}" style="color: #5341d3">詳細ページ</a>`,
                     // disableAutoPan: true
                 });
                 markerEvent(count);
@@ -48,7 +48,7 @@ function initMap() {
         }
 
         document.getElementById('hit-count').textContent = `引佐町には${markers.length}件の社会資源があります！`;
-    }, 100)
+    }, 200)
 }
 
 // setTimeout(initialize, 100);
@@ -124,10 +124,20 @@ function getExcel(url) {
             jsonList.push(sheet);
         }
     };
+
+    // let fmData = new FormData();
+    // jsonList.forEach(json => {
+    //     fmData.append(json);
+    // });
+    // fmData.append("名前", "太郎");
+    // let req2 = new XMLHttpRequest();
+    // req2.open("POST", "./detail.php");
+    // req2.send(fmData);
+
     return jsonList;
 }
 
-let jsonArray = getExcel('../inasa-syakaishigen.xlsm');
+let jsonArray = getExcel('./inasa-syakaishigen.xlsm');
 console.log(jsonArray);
 
 // let yakkyokuCsv = getCsv('./csv/20201112薬局.csv');
@@ -136,7 +146,7 @@ console.log(jsonArray);
 //     yakkyokuArray.push({
 //         lat: yakkyokuCsv[x][9],
 //         lng: yakkyokuCsv[x][10],
-//         content: `<b>${yakkyokuCsv[x][0]}</b><p>${yakkyokuCsv[x][2]}</p><a href="./detail.html" style="color: #5341d3">詳細ページ</a>`,
+//         content: `<b>${yakkyokuCsv[x][0]}</b><p>${yakkyokuCsv[x][2]}</p><a href="./syousai.html" style="color: #5341d3">詳細ページ</a>`,
 //         dekirukotoArray: yakkyokuCsv[x][11].split('、')
 //     })
 // }
@@ -160,7 +170,7 @@ function dkrSearch() {
 
                 if(markers[dkrSearchCount].getVisible()) {
                     visibleCount++;
-                    checkResultUl += `<li><b>${jsonArray[h][i]['名称']}</b><p>${jsonArray[h][i]['住所']}</p><a href="./detail${dkrSearchCount}.php" style="color: #5341d3">詳細ページ</a></li><hr>`;
+                    checkResultUl += `<li><b>${jsonArray[h][i]['名称']}</b><p>${jsonArray[h][i]['住所']}</p><a href="./detail.php?id=${jsonArray[h][i]['id']}" style="color: #5341d3">詳細ページ</a></li><hr>`;
                 }
             }
         }
