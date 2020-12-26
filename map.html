@@ -10,14 +10,15 @@
 <body>
     <header>
         <a id="bousai-link" href="https://hamabosai.maps.arcgis.com/apps/webappviewer/index.html?id=d4070f31679d487ab858eb38d1d6ae3a" target="_blank">浜松市防災マップ</a>
-        <a id="logo" href="./index.html"><img src="./img/logo-pc.png"></a>
-        <div id="hamburger"><span></span><span></span><span></span></div>
+        <a id="logo" href="./index.html"><img src="./img/logo.png"></a>
+        <div id="hamburger"><span></span><span></span><span></span><span>メニュー</span></div>
         <nav class="menu">
             <ul>
-                <li class="menu-item">メニュー</li>
+                <!-- <li class="menu-item">メニュー</li> -->
                 <li class="menu-item"><a href="./index.html">トップページ</a></li>
                 <li class="menu-item"><a href="./list.html">社会資源一覧ページ</a></li>
                 <li class="menu-item"><a href="https://hamabosai.maps.arcgis.com/apps/webappviewer/index.html?id=d4070f31679d487ab858eb38d1d6ae3a" target="_blank">浜松市防災マップ</a></li>
+                <li class="menu-item"><a href="https://www.city.hamamatsu.shizuoka.jp/n-machi/traffic/unkou/inasa/" target="_blank">いなさみどりバス</a></li>
             </ul>
         </nav>
     </header>
@@ -27,27 +28,35 @@
 
     <div id="checkbox">
         <input id="check-close" type="button" value="閉じる">
-
-        <input id="acd-check" type="checkbox" checked>
-        <label id="acd-label" for="acd-check">「できること検索」を開閉する</label>
+        <input id="acd-check" type="checkbox" checked><label id="acd-label" for="acd-check">「できること検索」を開閉する</label>
         <div id="acd-content">
             <form name="form1">
-                <label><input type="checkbox" name="dekirukoto" value="買い物" checked>買い物</label><br>
-                <label><input type="checkbox" name="dekirukoto" value="集う" checked>集う</label><br>
-                <label><input type="checkbox" name="dekirukoto" value="気分転換" checked>気分転換</label><br>
-                <label><input type="checkbox" name="dekirukoto" value="体を動かす" checked>体を動かす</label><br>
-                <label><input type="checkbox" name="dekirukoto" value="刺激を受ける" checked>刺激を受ける</label><br>
-                <label><input type="checkbox" name="dekirukoto" value="食事" checked>食事</label><br>
-                <label><input type="checkbox" name="dekirukoto" value="介護・医療サービスを利用する" checked>介護・医療サービスを利用する</label><br>
-                <label><input type="checkbox" name="dekirukoto" value="出かける" checked>出かける</label><br>
-                <label><input type="checkbox" name="dekirukoto" value="ボランティア" checked>ボランティア</label><br>
-                <label><input type="checkbox" name="dekirukoto" value="相談する" checked>相談する</label>
+                <input id="check1" type="checkbox" name="dekirukoto" value="買い物" checked><label for="check1">買い物</label>
+                <input id="check2" type="checkbox" name="dekirukoto" value="集う" checked><label for="check2">集う</label>
+                <input id="check3" type="checkbox" name="dekirukoto" value="気分転換" checked><label for="check3">気分転換</label><br>
+                <input id="check4" type="checkbox" name="dekirukoto" value="体を動かす" checked><label for="check4">体を動かす</label>
+                <input id="check5" type="checkbox" name="dekirukoto" value="刺激を受ける" checked><label for="check5">刺激を受ける</label>
+                <input id="check6" type="checkbox" name="dekirukoto" value="食事" checked><label for="check6">食事</label><br>
+                <input id="check7" type="checkbox" name="dekirukoto" value="介護・医療サービスを利用する" checked><label for="check7">介護・医療サービスを利用する</label><br>
+
+                <div id="sub-check">
+                    <input id="check7-1" type="checkbox" name="dekirukoto" value="薬局" checked><label for="check7-1">薬局</label>
+                    <input id="check7-2" type="checkbox" name="dekirukoto" value="デイ" checked><label for="check7-2">デイ</label>
+                    <input id="check7-3" type="checkbox" name="dekirukoto" value="ヘルパー" checked><label for="check7-3">ヘルパー</label>
+                    <input id="check7-4" type="checkbox" name="dekirukoto" value="ショート" checked><label for="check7-4">ショート</label><br>
+                    <input id="check7-5" type="checkbox" name="dekirukoto" value="入所施設" checked><label for="check7-5">入所施設</label>
+                    <input id="check7-6" type="checkbox" name="dekirukoto" value="就労支援" checked><label for="check7-6">就労支援</label>
+                    <input id="check7-7" type="checkbox" name="dekirukoto" value="相談窓口" checked><label for="check7-7">相談窓口</label><br>
+                </div>
+
+                <input id="check8" type="checkbox" name="dekirukoto" value="出かける" checked><label for="check8">出かける</label>
+                <input id="check9" type="checkbox" name="dekirukoto" value="ボランティア" checked><label for="check9">ボランティア</label>
+                <input id="check10" type="checkbox" name="dekirukoto" value="相談する" checked><label for="check10">相談する</label>
             </form>
             <input type="button" value="すべてにチェック" onclick="checkAll()">
             <input type="button" value="すべてのチェックを外す" onclick="checkNone()"><br>
-            <input type="button" value="検索する" onclick="dkrSearch()">
+            <input id="search-button" type="button" value="検索する" onclick="dkrSearch()">
         </div>
-
         <p id="hit-count"></p>
         <hr>
         <ul id="check-result"></ul>

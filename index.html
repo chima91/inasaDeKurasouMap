@@ -10,14 +10,15 @@
 <body>
     <header>
         <a id="bousai-link" href="https://hamabosai.maps.arcgis.com/apps/webappviewer/index.html?id=d4070f31679d487ab858eb38d1d6ae3a" target="_blank">浜松市防災マップ</a>
-        <a id="logo" href="./index.html"><img src="./img/logo-pc.png"></a>
-        <div id="hamburger"><span></span><span></span><span></span></div>
+        <a id="logo" href="./index.html"><img src="./img/logo.png"></a>
+        <div id="hamburger"><span></span><span></span><span></span><span>メニュー</span></div>
         <nav class="menu">
             <ul>
-                <li class="menu-item">メニュー</li>
+                <!-- <li class="menu-item">メニュー</li> -->
                 <li class="menu-item"><a href="./map.html">地図検索ページ</a></li>
                 <li class="menu-item"><a href="./list.html">社会資源一覧ページ</a></li>
                 <li class="menu-item"><a href="https://hamabosai.maps.arcgis.com/apps/webappviewer/index.html?id=d4070f31679d487ab858eb38d1d6ae3a" target="_blank">浜松市防災マップ</a></li>
+                <li class="menu-item"><a href="https://www.city.hamamatsu.shizuoka.jp/n-machi/traffic/unkou/inasa/" target="_blank">いなさみどりバス</a></li>
             </ul>
         </nav>
     </header>
@@ -25,19 +26,42 @@
 
     <h1 id="description-h1">「いなさで暮らそうマップ」にようこそ！</h1>
     <div id="description-box">
-        <p>「いなさで暮らそうマップ」では、<br>引佐町にある8種類の社会資源を閲覧することができます。
-            <ul>
-                <li>薬局</li>
-                <li>介護サービス事業所</li>
-                <li>障害サービス事業所</li>
-                <li>コミュニティバス</li>
-                <li>喫茶店・カフェ・カラオケ</li>
-                <li>サロン</li>
-                <li>商店</li>
-                <li>ボランティア</li>
-            </ul>
-            「できること」別に検索することができます！「できること」は全部で10種類！<br>10種類の「できること」のどれかにチェックを入れた状態で「検索する」をタップすると、チェックを入れた「できること」に該当する社会資源が地図上に表示されます。
-        </p>
+        <p>「いなさで暮らそうマップ」では、<br>引佐町にある7種類の社会資源を閲覧することができます。</p>
+        <ul>
+            <li><img class="syurui-icon" src="./img/pin-icon/yakkyoku.png">薬局</li>
+            <li><img class="syurui-icon" src="./img/pin-icon/kaigo.png">介護サービス事業所</li>
+            <li><img class="syurui-icon" src="./img/pin-icon/syougai.png">障害サービス事業所</li>
+            <li><img class="syurui-icon" src="./img/pin-icon/kissa.png">喫茶店・カフェ・カラオケ</li>
+            <li><img class="syurui-icon" src="./img/pin-icon/saron.png">サロン</li>
+            <li><img class="syurui-icon" src="./img/pin-icon/syouten.png">商店</li>
+            <li><img class="syurui-icon" src="./img/pin-icon/volunteer.png">ボランティア</li>
+        </ul>
+        <p>これらの社会資源を10種類の「できること」別に検索することができます。</p>
+        <ul>
+            <li>買い物</li>
+            <li>集う</li>
+            <li>気分転換</li>
+            <li>体を動かす</li>
+            <li>刺激を受ける</li>
+            <li>食事</li>
+            <li>介護・医療サービスを利用する</li>
+            <li>出かける</li>
+            <li>ボランティア</li>
+            <li>相談する</li>
+        </ul>
+        <p>10種類の「できること」のどれかにチェックを入れた状態で「検索する」をタップすると、チェックを入れた「できること」に該当する社会資源が地図上に表示されます。<br><br>
+        また、「介護・医療サービスを利用する」にチェックを入れると、「薬局、デイ、ヘルパー、ショート、入所施設、就労支援、相談窓口」のチェックボックスが追加で表示されるため、より細かく検索することができます。<br>
+        「介護・医療サービスを利用する」に該当する社会資源は以下のアイコンで見分けることができます。</p>
+        <ul>
+            <li><img class="syurui-icon" src="./img/koureisya-icon.png">介護サービス事業所</li>
+            <li><img class="syurui-icon" src="./img/syougaisya-icon.png">障害サービス事業所</li>
+            <li><img class="syurui-icon" src="./img/icon-day.png">デイ</li>
+            <li><img class="syurui-icon" src="./img/icon-helper.png">ヘルパー</li>
+            <li><img class="syurui-icon" src="./img/icon-short.png">ショート</li>
+            <li><img class="syurui-icon" src="./img/icon-nyuusyo.png">入所施設</li>
+            <li><img class="syurui-icon" src="./img/icon-syuurou.png">就労支援</li>
+            <li><img class="syurui-icon" src="./img/icon-soudan.png">相談窓口</li>
+        </ul>
     </div>
     <a id="to-map" href="./map.html">はじめる</a>
 
