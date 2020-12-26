@@ -8,7 +8,7 @@ $(function() {
             })
         } else {
             $("#menu-black-close").css({
-                "z-index":"0",
+                "z-index":"-1",
                 "opacity":"0"
             })
         }
@@ -16,7 +16,7 @@ $(function() {
     $("#menu-black-close").click(function() {
         $("#hamburger").removeClass("ham-open");
         $(this).css({
-            "z-index":"0",
+            "z-index":"-1",
             "opacity":"0"
         })
     });
@@ -25,26 +25,21 @@ $(function() {
         let syakaishigenCount = 0;
         let readResultUl = '';
         for(let h = 0; h < jsonArray.length; h++) {
-            readResultUl += '<ul style="margin: 0 20px 70px 20px;">';
+            readResultUl += `<h2>${sheet_name_list[h]}</h2><ul style="margin: 0 20px 70px 20px;">`;
             for(let i = 0; i < jsonArray[h].length; i++, syakaishigenCount++) {
-                readResultUl += `<li><b>${jsonArray[h][i]['名称']}</b><p>${jsonArray[h][i]['住所']}</p><a href="./detail.php?id=${jsonArray[h][i]['id']}" style="color: #5341d3">詳細ページ</a></li><hr>`;
+                readResultUl += `<li><b>${jsonArray[h][i]['名称']}</b>`;
+                if(jsonArray[h][i]['住所'] != undefined) {
+                    readResultUl += `<p>住所：${jsonArray[h][i]['住所']}</p>`;
+                }
+                readResultUl += `<p>できること：${jsonArray[h][i]['できること']}</p>`;
+                if(jsonArray[h][i]['配達サービス'] == 'あり') {
+                    readResultUl += '<p>配達サービス：あり</p>';
+                }
+                readResultUl += `<a href="./detail.html?id=${jsonArray[h][i]['id']}" style="color: #5341d3">詳細ページ</a></li><hr>`;
             }
             readResultUl += '</ul>';
         }
         document.getElementById('list-table').innerHTML = readResultUl;
-    }, 200);
-
-    let idTekito = "4_5";
-    setTimeout(function() {
-        let syousaiUl = '';
-        for(let h = 0; h < jsonArray.length; h++) {
-            for(let i = 0; i < jsonArray[h].length; i++) {
-                if(jsonArray[h][i]['id'] == idTekito) {
-                    syousaiUl += `<b>${jsonArray[h][i]['名称']}</b><p>${jsonArray[h][i]['住所']}</p>`;
-                }
-            }
-        }
-        document.getElementById('syousai').innerHTML = syousaiUl;
     }, 200);
 });
 
@@ -58,7 +53,7 @@ function getExcel(url) {
     req.onload = function() {
         let unit8 = new Uint8Array(req.response);
         let workbook = XLSX.read(unit8, {type: "array"});
-        let sheet_name_list = workbook.SheetNames;
+        sheet_name_list = workbook.SheetNames; // グローバル変数
         for(let t = 0; t < sheet_name_list.length; t++) {
             let sheet = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[t]]);
             jsonList.push(sheet);
@@ -67,4 +62,4 @@ function getExcel(url) {
 
     return jsonList;
 }
-let jsonArray = getExcel('./inasa-syakaishigen.xlsm');
+let jsonArray = getExcel('./inasa-syakaishigen20201225.xlsx');

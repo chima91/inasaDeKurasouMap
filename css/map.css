@@ -54,15 +54,15 @@ header {
 
 #hamburger {
     position: absolute;
-    top: 17px;
+    top: 15px;
     right: 15px;
-    width: 25px;
-    height: 21px;
-    padding: 7px;
-    border-radius: 4px;
+    width: 30px;
+    height: 40px;
+    padding: 5px 10px;
 }
 #hamburger span {
     position: relative;
+    right: -2.5px;
     display: block;
     width: 25px;
     height: 3px;
@@ -78,6 +78,17 @@ header {
 }
 #hamburger span:nth-child(3) {
     top: 12px;
+}
+#hamburger span:nth-child(4) {
+    top: 18px;
+    right: 9.5px;
+    width: 50px;
+    height: auto;
+    line-height: normal;
+    background-color: transparent;
+    border-radius: 0;
+    transition-duration: 0s;
+    font-size: 12px;
 }
 #hamburger.ham-open span:nth-child(1) {
     top: 9px;
@@ -118,14 +129,14 @@ header {
 .menu li {
     border-top: 1px solid lightgray;
 }
-.menu li:first-child {
+/* .menu li:first-child {
     color: white;
     background-color: darkslategray;
     text-align: center;
     line-height: 40px;  /* headerに指定したline-heightの影響を打ち消す。 */
-    font-size: 12px;
+    /* font-size: 12px;
     border-top: none;
-}
+} */
 .menu li a {
     display: block;
     padding: 0 25px;
@@ -134,15 +145,16 @@ header {
 
 #inasa-map {
     width: 100vw;
-    height: calc(100vh - (70px + 30px));
+    height: calc(90vh - (70px + 30px));
 }
 
+/* ここから「できること」検索 */
 #checkbox {
-    color: aliceblue;
-    background-color: rgba(120, 120, 120, 0.8);
-    font-size: 12px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.8);
+    font-size: 14px;
     display: inline-block;
-    max-width: 90%;
+    max-width: calc(100% - 40px); /* 両サイドに最低15px(+padding両サイド5px)の空白を作るため。 */
     max-height: 80%;
     padding: 5px;
     position: absolute;
@@ -150,44 +162,104 @@ header {
     left: 15px;
     z-index: 1; /* 「現在地を取得」より前に出すため。 */
 }
-#checkbox input {
-    font-size: 12px;
-    margin: 5px;
+#checkbox input[type="button"] {
+    color: black;
+    background-color: white;
 }
-#check-result {
-    max-height: 150px;
-    overflow-y: scroll;
-}
-.check-open ~ * {
+/* チェックボックスのスタイルここから */
+#checkbox input[type="checkbox"] {
     display: none;
 }
-#acd-check {
+#checkbox input[type="checkbox"]+label {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    padding-left: 20px;
+    padding-right: 10px;
+}
+#checkbox input[type="checkbox"]+label::before {
+    content: "";
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
+    width: 15px;
+    height: 15px;
+    margin-top: -10px;
+    left: 0;
+    top: 50%;
+    border: 1px solid;
+    border-color:  #585753;
+    background-color: #FFF;
+}
+#checkbox input[type="checkbox"]:checked+label::after {
+    content: "";
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
+    width: 12px;
+    height: 6px;
+    margin-top: -9px;
+    top: 60%;
+    left: 2px;
+    transform: rotate(-45deg);
+    border-bottom: 3px solid;
+    border-left: 3px solid;
+    border-color: #235523;
+}
+/* チェックボックスのスタイルここまで */
+#checkbox label {
+    display: inline-block;
+    margin: 4px 5px 5px 2px;
+}
+#checkbox #check-close.check-close ~ * {
     display: none;
 }
-#acd-label {
-    background: #333;
-    color: #fff;
-    margin-bottom: 1px;
-    padding: 5px;
+#checkbox input#acd-check, #checkbox input#acd-check+label::before, #checkbox input#acd-check:checked+label::after {
+    display: none;
 }
-#acd-content {
+#checkbox #acd-label {
+    background-color: white;
+    color: black;
+    padding: 3px 5px;
+    margin: 0 7px;
+}
+#checkbox #acd-content {
     height: 0;
     opacity: 0;
-    padding: 0 10px;
     visibility: hidden;
     transition: .5s;
 }
-#acd-check:checked + #acd-label + #acd-content {
-    height: 300px;
+#checkbox #acd-check:checked + #acd-label + #acd-content {
+    height: 250px;
     opacity: 1;
-    padding: 10px;
     visibility: visible;
+    margin-top: 15px;
 }
+#checkbox #search-button {
+    display: block;
+    margin: 10px auto;
+    color: white;
+    background-color: #457745;
+    border-color: white;
+    border-radius: 5px;
+}
+#checkbox #hit-count {
+    margin: 12px 0 4px 0;
+}
+#checkbox #check-result {
+    font-size: 12px;
+    max-height: 345px;
+    overflow-y: scroll;
+}
+#checkbox #acd-check:checked + label + div + p + hr + #check-result {
+    max-height: 80px;
+}
+/* ここまで「できること」検索 */
 
 #current-location-button {
     position: absolute;
-    bottom: 150px;
-    right: 10px;
+    bottom: 80px;
+    left: 10px;
 }
 
 footer {
@@ -219,16 +291,32 @@ footer {
         right: 35px;
     }
 
+    /* ここから「できること」検索 */
     #checkbox {
         max-width: 400px;
     }
-    #checkbox input {
-        margin: 6px 5px;
+    #checkbox #acd-check:checked + #acd-label + #acd-content {
+        height: 280px;
     }
-    #check-result {
+    #checkbox #check-result {
+        max-height: 495px;
+    }
+    #checkbox #acd-check:checked + label + div + p + hr + #check-result {
         max-height: 200px;
     }
-    #acd-check:checked + #acd-label + #acd-content {
-        height: 330px;
+    /* ここまで「できること」検索 */
+
+    #current-location-button {
+        bottom: 120px;
+    }
+}
+
+@media (min-width: 1200px) {
+    #inasa-map {
+        height: calc(100vh - (70px + 30px));
+    }
+
+    #current-location-button {
+        bottom: 80px;
     }
 }

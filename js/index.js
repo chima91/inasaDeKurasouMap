@@ -8,7 +8,7 @@ $(function() {
             })
         } else {
             $("#menu-black-close").css({
-                "z-index":"0",
+                "z-index":"-1",
                 "opacity":"0"
             })
         }
@@ -16,7 +16,7 @@ $(function() {
     $("#menu-black-close").click(function() {
         $("#hamburger").removeClass("ham-open");
         $(this).css({
-            "z-index":"0",
+            "z-index":"-1",
             "opacity":"0"
         })
     });

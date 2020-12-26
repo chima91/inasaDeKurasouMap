@@ -54,15 +54,15 @@ header {
 
 #hamburger {
     position: absolute;
-    top: 17px;
+    top: 15px;
     right: 15px;
-    width: 25px;
-    height: 21px;
-    padding: 7px;
-    border-radius: 4px;
+    width: 30px;
+    height: 40px;
+    padding: 5px 10px;
 }
 #hamburger span {
     position: relative;
+    right: -2.5px;
     display: block;
     width: 25px;
     height: 3px;
@@ -78,6 +78,17 @@ header {
 }
 #hamburger span:nth-child(3) {
     top: 12px;
+}
+#hamburger span:nth-child(4) {
+    top: 18px;
+    right: 9.5px;
+    width: 50px;
+    height: auto;
+    line-height: normal;
+    background-color: transparent;
+    border-radius: 0;
+    transition-duration: 0s;
+    font-size: 12px;
 }
 #hamburger.ham-open span:nth-child(1) {
     top: 9px;
@@ -118,27 +129,31 @@ header {
 .menu li {
     border-top: 1px solid lightgray;
 }
-.menu li:first-child {
+/* .menu li:first-child {
     color: white;
     background-color: darkslategray;
     text-align: center;
-    line-height: 40px;  /* headerに指定したline-heightの影響を打ち消す。 */
+    line-height: 40px;
     font-size: 12px;
     border-top: none;
-}
+} */
 .menu li a {
     display: block;
     padding: 0 25px;
 }
 /* ここまでヘッダー関係 */
 
-#list-h1 {
+h1 {
     text-align: center;
     margin: 30px 0;
 }
 #list-description {
     text-align: center;
     margin: 0 20px 50px 20px;
+}
+h2 {
+    margin: 0 0 15px 20px;
+    color: rgb(2, 99, 26);
 }
 
 footer {
