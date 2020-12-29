@@ -2,10 +2,23 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8" />
+    <meta name="description" content="「いなさで暮らそうマップ」の地図検索ページでは、「買い物、集う、気分転換、体を動かす、刺激を受ける、食事、介護・医療サービスを利用する、出かける、ボランティア」という9種類の「できること」別に社会資源を検索できます。" />
+    <meta property="og:url" content="https://www.sugilab.net/inasa-map/map.html" />
+    <meta property="og:title" content="地図検索 - いなさで暮らそうマップ" />
+    <meta property="og:description" content="「いなさで暮らそうマップ」の地図検索ページでは、「買い物、集う、気分転換、体を動かす、刺激を受ける、食事、介護・医療サービスを利用する、出かける、ボランティア」という9種類の「できること」別に社会資源を検索できます。" />
+    <meta property="og:image" content="https://www.sugilab.net/inasa-map/img/ogp/map-ogp.png" />
+    <meta name="twitter:card" content="summary" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>地図検索 - いなさで暮らそうマップ</title>
     <link rel="stylesheet" href="./css/map.css" type="text/css" />
+    <link rel="icon" href="./img/favicon/favicon.png" sizes="16x16" type="image/png" />
+    <link rel="icon" href="./img/favicon/favicon.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="./img/favicon/favicon.png" sizes="48x48" type="image/png" />
+    <link rel="icon" href="./img/favicon/favicon.png" sizes="62x62" type="image/png" />
+    <link rel="apple-touch-icon-precomposed" href="./img/favicon/favicon.png" />
+    <meta name="msapplication-TileImage" content="./img/favicon/favicon.png" />
+    <meta name="msapplication-TileColor" content="#cdeecd"/>
 </head>
 <body>
     <header>
@@ -51,7 +64,6 @@
 
                 <input id="check8" type="checkbox" name="dekirukoto" value="出かける" checked><label for="check8">出かける</label>
                 <input id="check9" type="checkbox" name="dekirukoto" value="ボランティア" checked><label for="check9">ボランティア</label>
-                <input id="check10" type="checkbox" name="dekirukoto" value="相談する" checked><label for="check10">相談する</label>
             </form>
             <input type="button" value="すべてにチェック" onclick="checkAll()">
             <input type="button" value="すべてのチェックを外す" onclick="checkNone()"><br>
@@ -63,6 +75,37 @@
     </div>
 
     <input id="current-location-button" type="button" value="現在地を取得" onclick="getCurrentLocation()">
+
+    <a id="modal-open-btn" href="">アイコンの凡例を表示</a>
+    <div id="modal-wrapper">
+        <div id="modal-bg" class="modal-close"></div>
+        <div id="modal-content">
+            <div>
+                <p class="modal-description">7種類の社会資源アイコンはこちら</p>
+                <ul>
+                    <li><img class="syurui-icon" src="./img/pin-icon/yakkyoku.png">薬局</li>
+                    <li><img class="syurui-icon" src="./img/pin-icon/kaigo.png">介護サービス事業所</li>
+                    <li><img class="syurui-icon" src="./img/pin-icon/syougai.png">障害サービス事業所</li>
+                    <li><img class="syurui-icon" src="./img/pin-icon/kissa.png">喫茶店・カフェ・カラオケ</li>
+                    <li><img class="syurui-icon" src="./img/pin-icon/saron.png">サロン</li>
+                    <li><img class="syurui-icon" src="./img/pin-icon/syouten.png">商店</li>
+                    <li><img class="syurui-icon" src="./img/pin-icon/volunteer.png">ボランティア</li>
+                </ul><hr>
+                <p class="modal-description">「介護・医療サービスを利用する」のアイコンはこちら</p>
+                <ul>
+                    <li><img class="syurui-icon" src="./img/koureisya-icon.png">介護サービス事業所</li>
+                    <li><img class="syurui-icon" src="./img/syougaisya-icon.png">障害サービス事業所</li>
+                    <li><img class="syurui-icon" src="./img/icon-day.png">デイ</li>
+                    <li><img class="syurui-icon" src="./img/icon-helper.png">ヘルパー</li>
+                    <li><img class="syurui-icon" src="./img/icon-short.png">ショート</li>
+                    <li><img class="syurui-icon" src="./img/icon-nyuusyo.png">入所施設</li>
+                    <li><img class="syurui-icon" src="./img/icon-syuurou.png">就労支援</li>
+                    <li><img class="syurui-icon" src="./img/icon-soudan.png">相談窓口</li>
+                </ul>
+            </div>
+            <a id="modal-close-btn" class="modal-close" href="">閉じる</a>
+        </div>
+    </div>
 
     <footer>
         <small>Copyright&copy; 2020-2021 静岡大学 杉山岳弘研究室 All Rights Reserved.</small>
