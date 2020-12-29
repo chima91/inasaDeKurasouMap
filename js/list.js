@@ -62,4 +62,4 @@ function getExcel(url) {
 
     return jsonList;
 }
-let jsonArray = getExcel('./inasa-syakaishigen20201225.xlsx');
+let jsonArray = getExcel('./inasa-syakaishigen20201228.xlsx');

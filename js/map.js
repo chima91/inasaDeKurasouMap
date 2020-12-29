@@ -13,51 +13,36 @@ function initMap() {
         });
 
         // マーカーおよび情報ウィンドウの配列を生成するforループ
-        let iconInfo;
+        let iconInfo = {
+            scaledSize: new google.maps.Size(25, 25),
+            labelOrigin: new google.maps.Point(13, 35)
+        };
         let count = 0;
         for(let h = 0; h < jsonArray.length; h++) {
             if(sheet_name_list[h] == 'サロン') {
-                iconInfo = {
-                    url: "./img/pin-icon/saron.png",
-                    scaledSize: new google.maps.Size(35, 35)
-                }
+                iconInfo.url = "./img/pin-icon/saron.png";
             } else if(sheet_name_list[h] == '介護サービス事業所') {
-                iconInfo = {
-                    url: "./img/pin-icon/kaigo.png",
-                    scaledSize: new google.maps.Size(35, 35)
-                }
+                iconInfo.url = "./img/pin-icon/kaigo.png";
             } else if(sheet_name_list[h] == '障害サービス事業所') {
-                iconInfo = {
-                    url: "./img/pin-icon/syougai.png",
-                    scaledSize: new google.maps.Size(35, 35)
-                }
+                iconInfo.url = "./img/pin-icon/syougai.png";
             } else if(sheet_name_list[h] == 'ボランティア') {
-                iconInfo = {
-                    url: "./img/pin-icon/volunteer.png",
-                    scaledSize: new google.maps.Size(35, 35)
-                }
+                iconInfo.url = "./img/pin-icon/volunteer.png";
             } else if(sheet_name_list[h] == '喫茶店・カフェ・カラオケ') {
-                iconInfo = {
-                    url: "./img/pin-icon/kissa.png",
-                    scaledSize: new google.maps.Size(35, 35)
-                }
+                iconInfo.url = "./img/pin-icon/kissa.png";
             } else if(sheet_name_list[h] == '商店') {
-                iconInfo = {
-                    url: "./img/pin-icon/syouten.png",
-                    scaledSize: new google.maps.Size(35, 35)
-                }
+                iconInfo.url = "./img/pin-icon/syouten.png";
             } else if(sheet_name_list[h] == '薬局') {
-                iconInfo = {
-                    url: "./img/pin-icon/yakkyoku.png",
-                    scaledSize: new google.maps.Size(35, 35)
-                }
+                iconInfo.url = "./img/pin-icon/yakkyoku.png";
             }
             for(let i = 0; i < jsonArray[h].length; i++, count++) {
                 markers[count] = new google.maps.Marker({
                     position: new google.maps.LatLng(jsonArray[h][i]['緯度'], jsonArray[h][i]['経度']),
                     map: map1,
-                    icon: iconInfo
-                    // label: jsonArray[h][i]['ラベル']
+                    icon: iconInfo,
+                    label: {
+                        text: jsonArray[h][i]['名称'],
+                        fontSize: '10px'
+                    }
                 });
                 infoWindows[count] = new google.maps.InfoWindow({
                     content: `<b>${jsonArray[h][i]['名称']}</b><p>${jsonArray[h][i]['住所']}</p><a href="./detail.html?id=${jsonArray[h][i]['id']}" style="color: #5341d3">詳細ページ</a>`,
@@ -81,6 +66,11 @@ function initMap() {
         }
 
         document.getElementById('hit-count').textContent = `引佐町には${markers.length}件の社会資源があります！`;
+        // google.maps.event.addListener(map1, 'zoom_changed', function() {
+        //     if(map1.getZoom() > 14) {
+        //         alert('ズームレベルが変更されました');
+        //     }
+        // });
     }, 200)
 }
 
@@ -127,6 +117,21 @@ $(function() {
             })
         }
     });
+
+    $('#modal-open-btn').on('click',function() {
+        $('#modal-wrapper').fadeIn();
+        $('#modal-wrapper').css({
+            "z-index":"10"
+        });
+        return false;
+    });
+    $('.modal-close').on('click',function() {
+        $('#modal-wrapper').fadeOut();
+        $('#modal-wrapper').css({
+            "z-index":"-1"
+        });
+        return false;
+    });
 });
 
 // Excelシートを読み込んでJSONに変換する関数
@@ -148,7 +153,7 @@ function getExcel(url) {
     };
     return jsonList;
 }
-let jsonArray = getExcel('./inasa-syakaishigen20201225.xlsx');
+let jsonArray = getExcel('./inasa-syakaishigen20201228.xlsx');
 
 // function getCsv(url) {
 //     //CSVファイルを文字列で取得。
@@ -192,7 +197,7 @@ function dkrSearch() {
     for(let h = 0; h < jsonArray.length; h++) {
         for(let i = 0; i < jsonArray[h].length; i++, dkrSearchCount++) {
             if(markers[dkrSearchCount] != null) {
-                    if(((jsonArray[h][i]['できること'].includes('買い物')) && (dekirukotoList[0].checked)) || ((jsonArray[h][i]['できること'].includes('集う')) && (dekirukotoList[1].checked)) || ((jsonArray[h][i]['できること'].includes('気分転換')) && (dekirukotoList[2].checked)) || ((jsonArray[h][i]['できること'].includes('体を動かす')) && (dekirukotoList[3].checked)) || ((jsonArray[h][i]['できること'].includes('刺激を受ける')) && (dekirukotoList[4].checked)) || ((jsonArray[h][i]['できること'].includes('食事')) && (dekirukotoList[5].checked)) || ((jsonArray[h][i]['できること'].includes('介護・医療サービスを利用する')) && (jsonArray[h][i]['id'].includes('2_')) && (dekirukotoList[6].checked) && (dekirukotoList[7].checked)) || ((jsonArray[h][i]['できること'].includes('出かける')) && (dekirukotoList[14].checked)) || ((jsonArray[h][i]['できること'].includes('ボランティア')) && (dekirukotoList[15].checked)) || ((jsonArray[h][i]['できること'].includes('相談する')) && (dekirukotoList[16].checked))) {
+                    if(((jsonArray[h][i]['できること'].includes('買い物')) && (dekirukotoList[0].checked)) || ((jsonArray[h][i]['できること'].includes('集う')) && (dekirukotoList[1].checked)) || ((jsonArray[h][i]['できること'].includes('気分転換')) && (dekirukotoList[2].checked)) || ((jsonArray[h][i]['できること'].includes('体を動かす')) && (dekirukotoList[3].checked)) || ((jsonArray[h][i]['できること'].includes('刺激を受ける')) && (dekirukotoList[4].checked)) || ((jsonArray[h][i]['できること'].includes('食事')) && (dekirukotoList[5].checked)) || ((jsonArray[h][i]['できること'].includes('介護・医療サービスを利用する')) && (jsonArray[h][i]['id'].includes('2_')) && (dekirukotoList[6].checked) && (dekirukotoList[7].checked)) || ((jsonArray[h][i]['できること'].includes('出かける')) && (dekirukotoList[14].checked)) || ((jsonArray[h][i]['できること'].includes('ボランティア')) && (dekirukotoList[15].checked))) {
                         markers[dkrSearchCount].setVisible(true);
                     } else if((jsonArray[h][i]['種別'] != null) && (((jsonArray[h][i]['できること'].includes('介護・医療サービスを利用する')) && (jsonArray[h][i]['種別'].includes('デイサービス')) && (dekirukotoList[6].checked) && (dekirukotoList[8].checked)) || ((jsonArray[h][i]['できること'].includes('介護・医療サービスを利用する')) && (jsonArray[h][i]['種別'].includes('ヘルパー')) && (dekirukotoList[6].checked) && (dekirukotoList[9].checked)) || ((jsonArray[h][i]['できること'].includes('介護・医療サービスを利用する')) && (jsonArray[h][i]['種別'].includes('ショートステイ')) && (dekirukotoList[6].checked) && (dekirukotoList[10].checked)) || ((jsonArray[h][i]['できること'].includes('介護・医療サービスを利用する')) && (jsonArray[h][i]['種別'].includes('入所施設')) && (dekirukotoList[6].checked) && (dekirukotoList[11].checked)) || ((jsonArray[h][i]['できること'].includes('介護・医療サービスを利用する')) && (jsonArray[h][i]['種別'].includes('就労支援')) && (dekirukotoList[6].checked) && (dekirukotoList[12].checked)) || ((jsonArray[h][i]['できること'].includes('介護・医療サービスを利用する')) && (jsonArray[h][i]['種別'].includes('相談窓口')) && (dekirukotoList[6].checked) && (dekirukotoList[13].checked)))) {
                         markers[dkrSearchCount].setVisible(true);
@@ -257,9 +262,10 @@ function checkAll() {
     }
 }
 
-// すべてのチェックを外す関数
+// すべて(介護・医療サービスのサブチェック以外)のチェックを外す関数
 function checkNone() {
     for(let i = 0; i < dekirukotoList.length; i++) {
+        if(i == 7 || i == 8 || i == 9 || i == 10 || i == 11 || i == 12 || i == 13) continue;
         dekirukotoList[i].checked = false;
     }
     if($("#checkbox #check7").prop("checked")) {
