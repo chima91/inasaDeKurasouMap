@@ -76,7 +76,7 @@
             </form>
             <input type="button" value="すべてにチェック" onclick="checkAll()">
             <input type="button" value="すべてのチェックを外す" onclick="checkNone()"><br>
-            <input id="search-button" type="button" value="検索する" onclick="dkrSearch()">
+            <input id="search-button" type="button" value="検索する" onclick="dkrSearch(); ga('send', 'event', 'click', 'dkrSearch', 'click-dkrSearch')">
         </div>
         <p id="hit-count"></p>
         <hr>
