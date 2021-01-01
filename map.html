@@ -76,14 +76,14 @@
             </form>
             <input type="button" value="すべてにチェック" onclick="checkAll()">
             <input type="button" value="すべてのチェックを外す" onclick="checkNone()"><br>
-            <input id="search-button" type="button" value="検索する" onclick="dkrSearch(); ga('send', 'event', 'click', 'dkrSearch', 'click-dkrSearch')">
+            <input id="search-button" type="button" value="検索する" onclick="dkrSearch(); gtag('event', 'tap', {'event_category': 'dkrSearch', 'event_label': 'dkrSearch-tap', 'value': '1'})">
         </div>
         <p id="hit-count"></p>
         <hr>
         <ul id="check-result"></ul>
     </div>
 
-    <input id="current-location-button" type="button" value="現在地を取得" onclick="getCurrentLocation(); gtag('event', 'tap', {'event_category': 'dkrSearch', 'event_label': 'dkrSearch-tap', 'value': '1'})">
+    <input id="current-location-button" type="button" value="現在地を取得" onclick="getCurrentLocation(); gtag('event', 'tap', {'event_category': 'getCurrentLocation', 'event_label': 'getCurrentLocation-tap', 'value': '1'})">
 
     <a id="modal-open-btn" href="">アイコンの凡例を表示</a>
     <div id="modal-wrapper">
