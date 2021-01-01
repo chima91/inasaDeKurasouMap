@@ -83,12 +83,13 @@
         <ul id="check-result"></ul>
     </div>
 
-    <input id="current-location-button" type="button" value="現在地を取得" onclick="getCurrentLocation()">
+    <input id="current-location-button" type="button" value="現在地を取得" onclick="getCurrentLocation(); gtag('event', 'tap', {'event_category': 'dkrSearch', 'event_label': 'dkrSearch-tap', 'value': '1'})">
 
     <a id="modal-open-btn" href="">アイコンの凡例を表示</a>
     <div id="modal-wrapper">
         <div id="modal-bg" class="modal-close"></div>
         <div id="modal-content">
+            <a class="modal-close modal-close-btn" href="">閉じる</a>
             <div>
                 <p class="modal-description">7種類の社会資源アイコンはこちら</p>
                 <ul>
@@ -112,7 +113,7 @@
                     <li><img class="syurui-icon" src="./img/icon-soudan.png">相談窓口</li>
                 </ul>
             </div>
-            <a id="modal-close-btn" class="modal-close" href="">閉じる</a>
+            <a class="modal-close modal-close-btn" href="">閉じる</a>
         </div>
     </div>
 
