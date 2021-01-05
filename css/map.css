@@ -234,6 +234,7 @@ header {
 }
 #checkbox #acd-check:checked + #acd-label + #acd-content {
     height: 250px;
+    overflow-y: scroll;
     opacity: 1;
     visibility: visible;
     margin-top: 15px;
@@ -250,7 +251,7 @@ header {
     margin: 12px 0 4px 0;
 }
 #checkbox #check-result {
-    font-size: 12px;
+    font-size: 14px;
     max-height: 345px;
     overflow-y: scroll;
 }
@@ -336,6 +337,22 @@ footer {
     background-color: darkslategray;
 }
 
+@media (max-width: 350px) {
+    .br-350 {
+        display: none;
+    }
+
+    #checkbox #acd-check:checked + #acd-label + #acd-content {
+        height: 180px;
+    }
+    #checkbox #check-result {
+        max-height: 240px;
+    }
+    #checkbox #acd-check:checked + label + div + p + hr + #check-result {
+        max-height: 40px;
+    }
+}
+
 @media (min-width: 768px) {
     #bousai-link {
         display: inline-block;
@@ -358,12 +375,14 @@ footer {
 
     /* ここから「できること」検索 */
     #checkbox {
-        max-width: 400px;
+        font-size: 18px;
+        max-width: 70%;
     }
     #checkbox #acd-check:checked + #acd-label + #acd-content {
         height: 280px;
     }
     #checkbox #check-result {
+        font-size: 16px;
         max-height: 495px;
     }
     #checkbox #acd-check:checked + label + div + p + hr + #check-result {
