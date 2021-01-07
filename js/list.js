@@ -22,11 +22,10 @@ $(function() {
     });
 
     setTimeout(function() {
-        let syakaishigenCount = 0;
         let readResultUl = '';
         for(let h = 0; h < jsonArray.length; h++) {
             readResultUl += `<h2>${sheet_name_list[h]}</h2><ul style="margin: 0 20px 70px 20px;">`;
-            for(let i = 0; i < jsonArray[h].length; i++, syakaishigenCount++) {
+            for(let i = 0; i < jsonArray[h].length; i++) {
                 readResultUl += `<li><b>${jsonArray[h][i]['名称']}</b>`;
                 if(jsonArray[h][i]['住所'] != undefined) {
                     readResultUl += `<p>住所：${jsonArray[h][i]['住所']}</p>`;
