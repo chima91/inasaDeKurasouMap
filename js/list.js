@@ -50,8 +50,8 @@ function getExcel(url) {
 
     let jsonList = [];
     req.onload = function() {
-        let unit8 = new Uint8Array(req.response);
-        let workbook = XLSX.read(unit8, {type: "array"});
+        let uint8 = new Uint8Array(req.response);
+        let workbook = XLSX.read(uint8, {type: "array"});
         sheet_name_list = workbook.SheetNames; // グローバル変数
         for(let t = 0; t < sheet_name_list.length; t++) {
             let sheet = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[t]]);
