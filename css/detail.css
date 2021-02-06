@@ -29,6 +29,25 @@ a {
 
 /* ここまでリセットCSS */
 
+/* ここからローディング関係 */
+#loading {
+    width: 100vw;
+    height: 100vh;
+    background-color: #eeffee;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+}
+#loading img {
+    width: 200px;
+}
+/* ここまでローディング関係 */
+
 /* ここからヘッダー関係 */
 header {
     height: 70px;
@@ -162,6 +181,17 @@ h1 {
 
 #detail-url {
     color: #5341d3;
+}
+
+#link-div {
+    text-align: center;
+}
+.detail-link {
+    display: inline-block;
+    margin: 15px 5px;
+    padding: 10px;
+    border: 1px solid #557755;
+    border-radius: 5px;
 }
 
 footer {

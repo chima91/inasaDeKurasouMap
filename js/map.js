@@ -1,9 +1,24 @@
+let jsonArray;
+async function getJson() {
+    const res = await fetch('https://script.googleusercontent.com/macros/echo?user_content_key=IU_majGmfwhE3mUp_8IbeYXMZGsM-xSgesgOrQlxeRjbEWKzN7lNy_NWu5oeFUl8ERpuU1kNWNH6EBN5xJyYeLTOpHM97A3Im5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnC-NnOpEyNUv90qldEvbLL6Xz1GBq_6Bya6TkKlYhFQE4JamSXLtQT8AI_WHbeHRt2Oqk0FkhV_QGGaU2pP6Ntk&lib=MLUBSv-keSXYUu5ZSNCbXyjlewnNH1PVR');
+    const data = await res.json();
+    return data;
+}
+getJson()
+    .then(data => {
+        jsonArray = data;
+        endLoading();
+        initMap();
+    })
+    .catch(err => {
+        console.log(err);
+    })
+
 let markers = [];
 let infoWindows = [];
 
 // コールバック関数
 function initMap() {
-    setTimeout(function() {
         map1 = new google.maps.Map(document.getElementById('inasa-map'), { // あえてlet, const, varをつけずにグローバル変数にした。
             center: { lat: 34.851887, lng: 137.673219 },
             zoom: 14,
@@ -19,19 +34,19 @@ function initMap() {
         };
         let count = 0;
         for(let h = 0; h < jsonArray.length; h++) {
-            if(sheet_name_list[h] == 'サロン') {
+            if(jsonArray[h][0]['社会資源の種類'] == 'サロン') {
                 iconInfo.url = "./img/pin-icon/saron.png";
-            } else if(sheet_name_list[h] == '介護サービス事業所') {
+            } else if(jsonArray[h][0]['社会資源の種類'] == '介護サービス事業所') {
                 iconInfo.url = "./img/pin-icon/kaigo.png";
-            } else if(sheet_name_list[h] == '障害サービス事業所') {
+            } else if(jsonArray[h][0]['社会資源の種類'] == '障害サービス事業所') {
                 iconInfo.url = "./img/pin-icon/syougai.png";
-            } else if(sheet_name_list[h] == 'ボランティア') {
+            } else if(jsonArray[h][0]['社会資源の種類'] == 'ボランティア') {
                 iconInfo.url = "./img/pin-icon/volunteer.png";
-            } else if(sheet_name_list[h] == '喫茶店・カフェ・カラオケ') {
+            } else if(jsonArray[h][0]['社会資源の種類'] == '喫茶店・カフェ・カラオケ') {
                 iconInfo.url = "./img/pin-icon/kissa.png";
-            } else if(sheet_name_list[h] == '商店') {
+            } else if(jsonArray[h][0]['社会資源の種類'] == '商店') {
                 iconInfo.url = "./img/pin-icon/syouten.png";
-            } else if(sheet_name_list[h] == '薬局') {
+            } else if(jsonArray[h][0]['社会資源の種類'] == '薬局') {
                 iconInfo.url = "./img/pin-icon/yakkyoku.png";
             }
             for(let i = 0; i < jsonArray[h].length; i++, count++) {
@@ -53,8 +68,7 @@ function initMap() {
         }
 
         let currentInfoWindow = null;
-        // マーカーをクリックしたら情報ウィンドウを表示する関数
-        // (既に情報ウィンドウが出ていた場合はそれを消してから新しい情報ウィンドウを表示する)
+        // マーカーをクリックしたら情報ウィンドウを表示する関数（既に情報ウィンドウが出ていた場合はそれを消してから新しい情報ウィンドウを表示する）
         function markerEvent(arrayIndex) {
             markers[arrayIndex].addListener('click', function() {
                 if(currentInfoWindow) {
@@ -71,7 +85,6 @@ function initMap() {
         //         alert('ズームレベルが変更されました');
         //     }
         // });
-    }, 200)
 }
 
 $(function() {
@@ -134,26 +147,12 @@ $(function() {
     });
 });
 
-// Excelシートを読み込んでJSONに変換する関数
-function getExcel(url) {
-    let req = new XMLHttpRequest();
-    req.open("GET", url, true);
-    req.responseType = "arraybuffer";
-    req.send();
-
-    let jsonList = [];
-    req.onload = function() {
-        let uint8 = new Uint8Array(req.response);
-        let workbook = XLSX.read(uint8, {type: "array"});
-        sheet_name_list = workbook.SheetNames; // グローバル変数
-        for(let t = 0; t < sheet_name_list.length; t++) {
-            let sheet = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[t]]);
-            jsonList.push(sheet);
-        }
-    };
-    return jsonList;
+function endLoading() {
+    // 1秒かけてロゴを非表示にし、その後0.8秒かけて背景を非表示にする。
+    $('#loading img, #loading p').fadeOut(500, function() {
+        $('#loading').fadeOut(300);
+    });
 }
-let jsonArray = getExcel('./inasa-syakaishigen20201228.xlsx');
 
 // function getCsv(url) {
 //     //CSVファイルを文字列で取得。
@@ -211,10 +210,10 @@ function dkrSearch() {
                     if(jsonArray[h][i]['住所'] != null) {
                         checkResultUl += `<p>${jsonArray[h][i]['住所']}</p>`;
                     }
-                    if(sheet_name_list[h] == '介護サービス事業所') {
+                    if(jsonArray[h][0]['社会資源の種類'] == '介護サービス事業所') {
                         checkResultUl += '<img src="./img/koureisya-icon.png" style="display: inline-block; width: 40px; height: 40px; margin: 3px 15px 0 3px">';
                     }
-                    if(sheet_name_list[h] == '障害サービス事業所') {
+                    if(jsonArray[h][0]['社会資源の種類'] == '障害サービス事業所') {
                         checkResultUl += '<img src="./img/syougaisya-icon.png" style="display: inline-block; width: 40px; height: 40px; margin: 3px 15px 0 3px">';
                     }
                     if(jsonArray[h][i]['種別'] != null) {

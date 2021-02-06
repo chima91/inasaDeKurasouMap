@@ -31,9 +31,14 @@
     <meta name="msapplication-TileColor" content="#cdeecd"/>
 </head>
 <body>
+    <div id="loading">
+        <img src="./img/logo.png" alt="「いなさで暮らそうマップ」のロゴ">
+        <p>社会資源データを読み込んでいます...</p>
+        <img src="./img/loading-square.gif" alt="ローディングのアニメーション">
+    </div>
     <header>
         <a id="bousai-link" href="https://hamabosai.maps.arcgis.com/apps/webappviewer/index.html?id=d4070f31679d487ab858eb38d1d6ae3a" target="_blank">浜松市防災マップ</a>
-        <a id="logo" href="./index.html"><img src="./img/logo.png"></a>
+        <a id="logo" href="./index.html"><img src="./img/logo.png" alt="「いなさで暮らそうマップ」のロゴ"></a>
         <div id="hamburger"><span></span><span></span><span></span><span>メニュー</span></div>
         <nav class="menu">
             <ul>
@@ -94,24 +99,24 @@
             <div>
                 <p class="modal-description">7種類の社会資源アイコンはこちら</p>
                 <ul>
-                    <li><img class="syurui-icon" src="./img/pin-icon/yakkyoku.png">薬局</li>
-                    <li><img class="syurui-icon" src="./img/pin-icon/kaigo.png">介護サービス事業所</li>
-                    <li><img class="syurui-icon" src="./img/pin-icon/syougai.png">障害サービス事業所</li>
-                    <li><img class="syurui-icon" src="./img/pin-icon/kissa.png">喫茶店・カフェ・カラオケ</li>
-                    <li><img class="syurui-icon" src="./img/pin-icon/saron.png">サロン</li>
-                    <li><img class="syurui-icon" src="./img/pin-icon/syouten.png">商店</li>
-                    <li><img class="syurui-icon" src="./img/pin-icon/volunteer.png">ボランティア</li>
+                    <li><img class="syurui-icon" src="./img/pin-icon/yakkyoku.png" alt="薬局のアイコン">薬局</li>
+                    <li><img class="syurui-icon" src="./img/pin-icon/kaigo.png" alt="介護サービス事業所のアイコン">介護サービス事業所</li>
+                    <li><img class="syurui-icon" src="./img/pin-icon/syougai.png" alt="障害サービス事業所のアイコン">障害サービス事業所</li>
+                    <li><img class="syurui-icon" src="./img/pin-icon/kissa.png" alt="喫茶店・カフェ・カラオケのアイコン">喫茶店・カフェ・カラオケ</li>
+                    <li><img class="syurui-icon" src="./img/pin-icon/saron.png" alt="サロンのアイコン">サロン</li>
+                    <li><img class="syurui-icon" src="./img/pin-icon/syouten.png" alt="商店のアイコン">商店</li>
+                    <li><img class="syurui-icon" src="./img/pin-icon/volunteer.png" alt="ボランティアのアイコン">ボランティア</li>
                 </ul><hr>
                 <p class="modal-description">「介護・医療サービスを利用する」のアイコンはこちら</p>
                 <ul>
-                    <li><img class="syurui-icon" src="./img/koureisya-icon.png">介護サービス事業所</li>
-                    <li><img class="syurui-icon" src="./img/syougaisya-icon.png">障害サービス事業所</li>
-                    <li><img class="syurui-icon" src="./img/icon-day.png">デイ</li>
-                    <li><img class="syurui-icon" src="./img/icon-helper.png">ヘルパー</li>
-                    <li><img class="syurui-icon" src="./img/icon-short.png">ショート</li>
-                    <li><img class="syurui-icon" src="./img/icon-nyuusyo.png">入所施設</li>
-                    <li><img class="syurui-icon" src="./img/icon-syuurou.png">就労支援</li>
-                    <li><img class="syurui-icon" src="./img/icon-soudan.png">相談窓口</li>
+                    <li><img class="syurui-icon" src="./img/koureisya-icon.png" alt="高齢者のアイコン">高齢者の方が主に利用</li>
+                    <li><img class="syurui-icon" src="./img/syougaisya-icon.png" alt="障害者のアイコン">障害者の方が主に利用</li>
+                    <li><img class="syurui-icon" src="./img/icon-day.png" alt="デイサービスのアイコン">デイ</li>
+                    <li><img class="syurui-icon" src="./img/icon-helper.png" alt="ホームヘルパーのアイコン">ヘルパー</li>
+                    <li><img class="syurui-icon" src="./img/icon-short.png" alt="ショートステイのアイコン">ショート</li>
+                    <li><img class="syurui-icon" src="./img/icon-nyuusyo.png" alt="入所施設のアイコン">入所施設</li>
+                    <li><img class="syurui-icon" src="./img/icon-syuurou.png" alt="就労支援のアイコン">就労支援</li>
+                    <li><img class="syurui-icon" src="./img/icon-soudan.png" alt="相談窓口のアイコン">相談窓口</li>
                 </ul>
             </div>
             <a class="modal-close modal-close-btn" href="">閉じる</a>
@@ -125,6 +130,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.8/xlsx.full.min.js"></script>
     <script src="./js/map.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDV05EwCTbPPsWFDyhspJW-OoRDu13U3TI&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDV05EwCTbPPsWFDyhspJW-OoRDu13U3TI" async defer></script>
+    <!-- 「&callback=initMap」を削除 -->
 </body>
 </html>

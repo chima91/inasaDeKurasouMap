@@ -26,9 +26,14 @@
     <meta name="msapplication-TileColor" content="#cdeecd"/>
 </head>
 <body>
+    <div id="loading">
+        <img src="./img/logo.png" alt="「いなさで暮らそうマップ」のロゴ">
+        <p>社会資源データを読み込んでいます...</p>
+        <img src="./img/loading-square.gif" alt="ローディングのアニメーション">
+    </div>
     <header>
         <a id="bousai-link" href="https://hamabosai.maps.arcgis.com/apps/webappviewer/index.html?id=d4070f31679d487ab858eb38d1d6ae3a" target="_blank">浜松市防災マップ</a>
-        <a id="logo" href="./index.html"><img src="./img/logo.png"></a>
+        <a id="logo" href="./index.html"><img src="./img/logo.png" alt="「いなさで暮らそうマップ」のロゴ"></a>
         <div id="hamburger"><span></span><span></span><span></span><span>メニュー</span></div>
         <nav class="menu">
             <ul>
@@ -46,6 +51,10 @@
     <h1></h1>
     <div id="detail-map"></div>
     <div id="detail"></div>
+    <div id="link-div">
+        <a class="detail-link" href="./map.html">地図検索ページへ</a>
+        <a class="detail-link" href="./list.html">社会資源一覧ページへ</a>
+    </div>
 
     <footer>
         <small>Copyright&copy; 2020-2021 静岡大学 杉山岳弘研究室 All Rights Reserved.</small>
