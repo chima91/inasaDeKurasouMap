@@ -34,17 +34,30 @@ a {
     width: 100vw;
     height: 100vh;
     background-color: #eeffee;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: baseline;
     position: fixed;
     z-index: 10;
     top: 0;
     left: 0;
 }
 #loading img {
+    position: absolute;
     width: 200px;
+}
+#loadImg1 {
+    top: 25%;
+    left: 50%;
+    transform : translate(-50%, -25%);
+}
+#loadImg2 {
+    top: 55%;
+    left: 50%;
+    transform : translate(-50%, -55%);
+}
+#loading p {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform : translate(-50%, -40%);
 }
 /* ここまでローディング関係 */
 
@@ -204,20 +217,24 @@ footer {
 }
 
 @media (min-width: 768px) {
+    #loadImg1 {
+        top: 30%;
+        transform : translate(-50%, -30%);
+    }
+    #loadImg2 {
+        top: 50%;
+        transform : translate(-50%, -50%);
+    }
+    #loading p {
+        top: 40%;
+        transform : translate(-50%, -40%);
+    }
+
     #bousai-link {
         display: inline-block;
         margin-left: 7%;
         position: absolute;
     }
-
-    /* #logo {
-        width: 195px;
-        height: 65px;
-    }
-    #logo img {
-        width: 195px;
-        height: 65px;
-    } */
 
     #hamburger {
         right: 35px;

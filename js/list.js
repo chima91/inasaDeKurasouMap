@@ -15,13 +15,9 @@ $(function() {
                 readResultUl += `<h2>${jsonArray[h][0]['社会資源の種類']}</h2><ul style="margin: 0 20px 70px 20px;">`;
                 for(let i = 0; i < jsonArray[h].length; i++) {
                     readResultUl += `<li><b>${jsonArray[h][i]['名称']}</b>`;
-                    if(jsonArray[h][i]['住所'] != '') {
-                        readResultUl += `<p>住所：${jsonArray[h][i]['住所']}</p>`;
-                    }
+                    if(jsonArray[h][i]['住所']) readResultUl += `<p>住所：${jsonArray[h][i]['住所']}</p>`;
                     readResultUl += `<p>できること：${jsonArray[h][i]['できること']}</p>`;
-                    if(jsonArray[h][i]['配達サービス'] == 'あり') {
-                        readResultUl += '<p>配達サービス：あり</p>';
-                    }
+                    if(jsonArray[h][i]['配達サービス'] == 'あり') readResultUl += '<p>配達サービス：あり</p>';
                     readResultUl += `<a href="./detail.html?id=${jsonArray[h][i]['id']}" style="color: #5341d3">詳細ページ</a></li><hr>`;
                 }
                 readResultUl += '</ul>';
