@@ -33,7 +33,7 @@
 <body>
     <div id="loading">
         <img id="loadImg1" src="./img/logo.png" alt="「いなさで暮らそうマップ」のロゴ">
-        <p>社会資源データを読み込んでいます...</p>
+        <p>社会資源データを<br>読み込んでいます...</p>
         <img id="loadImg2" src="./img/loading-square.gif" alt="ローディングのアニメーション">
     </div>
     <header>
@@ -42,7 +42,6 @@
         <div id="hamburger"><span></span><span></span><span></span><span>メニュー</span></div>
         <nav class="menu">
             <ul>
-                <!-- <li class="menu-item">メニュー</li> -->
                 <li class="menu-item"><a href="./index.html">トップページ</a></li>
                 <li class="menu-item"><a href="./list.html">社会資源一覧ページ</a></li>
                 <li class="menu-item"><a href="https://hamabosai.maps.arcgis.com/apps/webappviewer/index.html?id=d4070f31679d487ab858eb38d1d6ae3a" target="_blank">浜松市防災マップ</a></li>
@@ -55,7 +54,8 @@
     <div id="inasa-map"></div>
 
     <div id="checkbox">
-        <input id="check-close" type="button" value="閉じる">
+        <!-- <input id="check-close" type="button" value="閉じる"> -->
+        <a id="check-open-close">閉じる</a>
         <input id="acd-check" type="checkbox" checked><label id="acd-label" for="acd-check">「できること検索」を開閉する</label>
         <div id="acd-content">
             <form name="form1">
@@ -80,16 +80,19 @@
                 <input id="check8" type="checkbox" name="dekirukoto" value="出かける" checked><label for="check8">出かける</label>
                 <input id="check9" type="checkbox" name="dekirukoto" value="ボランティア" checked><label for="check9">ボランティア</label>
             </form>
-            <input type="button" value="すべてにチェック" onclick="checkAll()">
-            <input type="button" value="すべてのチェックを外す" onclick="checkNone()"><br class="br-350">
-            <input id="search-button" type="button" value="検索する" onclick="dkrSearch(); gtag('event', 'tap', {'event_category': 'dkrSearch', 'event_label': 'dkrSearch-tap', 'value': '1'})">
+            <!-- <input type="button" value="すべてにチェック" onclick="checkAll()"> -->
+            <a class="check-all-none" onclick="checkAll()">すべてにチェック</a>
+            <!-- <input type="button" value="すべてのチェックを外す" onclick="checkNone()"> -->
+            <a class="check-all-none" onclick="checkNone()">すべてのチェックを外す</a><br class="br-350">
+            <!-- <input id="search-button" type="button" value="検索する" onclick="dkrSearch(); gtag('event', 'tap', {'event_category': 'dkrSearch', 'event_label': 'dkrSearch-tap', 'value': '1'})"> -->
+            <a id="search-button" onclick="dkrSearch(); gtag('event', 'tap', {'event_category': 'dkrSearch', 'event_label': 'dkrSearch-tap', 'value': '1'})">検索する</a>
         </div>
         <p id="hit-count"></p>
         <hr>
         <ul id="check-result"></ul>
     </div>
 
-    <input id="current-location-button" type="button" value="現在地を取得" onclick="getCurrentLocation(); gtag('event', 'tap', {'event_category': 'getCurrentLocation', 'event_label': 'getCurrentLocation-tap', 'value': '1'})">
+    <a id="current-location-button" onclick="getCurrentLocation(); gtag('event', 'tap', {'event_category': 'getCurrentLocation', 'event_label': 'getCurrentLocation-tap', 'value': '1'})">現在地を取得</a>
 
     <a id="modal-open-btn" href="">アイコンの凡例を表示</a>
     <div id="modal-wrapper">

@@ -110,12 +110,12 @@ $(function() {
         })
     });
 
-    $("#check-close").click(function() {
-        $(this).toggleClass("check-close");
-        if($(this).hasClass("check-close")) {
-            $(this).attr("value", "開く");
+    $("#check-open-close").click(function() {
+        $(this).toggleClass("check-open-close");
+        if($(this).hasClass("check-open-close")) {
+            $(this).text('開く');
         } else {
-            $(this).attr("value", "閉じる");
+            $(this).text('閉じる');
         }
     });
 

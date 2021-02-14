@@ -7,9 +7,9 @@
 } */
 
 /* bodyのデフォルトを定義 */
-/* body {
-    font-family: "Kosugi Maru", sans-serif;
-} */
+body {
+    font-family: 'Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',YuGothic,'Yu Gothic',sans-serif;
+}
 
 /* デフォルトのmarginを削除 */
 body, h1, h2, h3, p, ul, li {
@@ -161,14 +161,6 @@ header {
 .menu li {
     border-top: 1px solid lightgray;
 }
-/* .menu li:first-child {
-    color: white;
-    background-color: darkslategray;
-    text-align: center;
-    line-height: 40px;  /* headerに指定したline-heightの影響を打ち消す。 */
-    /* font-size: 12px;
-    border-top: none;
-} */
 .menu li a {
     display: block;
     padding: 0 25px;
@@ -194,9 +186,11 @@ header {
     left: 15px;
     z-index: 1; /* 「現在地を取得」より前に出すため。 */
 }
-#checkbox input[type="button"] {
-    color: black;
+#checkbox #check-open-close {
     background-color: white;
+    padding: 3px 5px;
+    border-radius: 5px;
+    border: solid 1px black;
 }
 /* チェックボックスのスタイルここから */
 #checkbox input[type="checkbox"] {
@@ -246,7 +240,7 @@ header {
     display: inline-block;
     margin: 4px 5px 5px 2px;
 }
-#checkbox #check-close.check-close ~ * {
+#checkbox #check-open-close.check-open-close ~ * {
     display: none;
 }
 #checkbox input#acd-check, #checkbox input#acd-check+label::before, #checkbox input#acd-check:checked+label::after {
@@ -255,8 +249,10 @@ header {
 #checkbox #acd-label {
     background-color: white;
     color: black;
-    padding: 3px 5px;
+    padding: 3px 5px 3px 0;
+    border-radius: 5px;
     margin: 0 7px;
+    border: solid 1px black;
 }
 #checkbox #acd-content {
     height: 0;
@@ -271,19 +267,27 @@ header {
     visibility: visible;
     margin-top: 15px;
 }
+#checkbox .check-all-none {
+    background-color: white;
+    padding: 3px 5px;
+    border-radius: 5px;
+    border: solid 1px black;
+}
 #checkbox #search-button {
     display: block;
+    width: 100px;
+    text-align: center;
     margin: 10px auto;
+    padding: 3px 5px;
     color: white;
     background-color: #457745;
-    border-color: white;
+    border-color: solid 1px white;
     border-radius: 5px;
 }
 #checkbox #hit-count {
     margin: 12px 0 4px 0;
 }
 #checkbox #check-result {
-    font-size: 14px;
     max-height: 345px;
     overflow-y: scroll;
 }
@@ -294,18 +298,22 @@ header {
 
 #current-location-button {
     position: absolute;
-    bottom: 80px;
+    bottom: 85px;
     left: 10px;
+    background-color: white;
+    font-size: 14px;
+    padding: 3px 5px;
+    border-radius: 5px;
+    border: solid 1px black;
 }
 
 /* アイコン凡例のモーダルここから */
 #modal-open-btn {
-    display: inline-block;
     position: absolute;
     bottom: 50px;
     left: 10px;
     background-color: white;
-    font-size: 12px;
+    font-size: 14px;
     padding: 3px 5px;
     border-radius: 5px;
     border: solid 1px black;
@@ -427,7 +435,7 @@ footer {
     /* ここまで「できること」検索 */
 
     #current-location-button {
-        bottom: 120px;
+        bottom: 125px;
     }
     #modal-open-btn {
         bottom: 90px;
@@ -445,7 +453,7 @@ footer {
     }
 
     #current-location-button {
-        bottom: 90px;
+        bottom: 95px;
     }
     #modal-open-btn {
         bottom: 60px;

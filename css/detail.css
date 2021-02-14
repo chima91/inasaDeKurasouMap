@@ -7,9 +7,9 @@
 } */
 
 /* bodyのデフォルトを定義 */
-/* body {
-    font-family: "Kosugi Maru", sans-serif;
-} */
+body {
+    font-family: 'Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',YuGothic,'Yu Gothic',sans-serif;
+}
 
 /* デフォルトのmarginを削除 */
 body, h1, h2, h3, p, ul, li {
