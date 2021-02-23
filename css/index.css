@@ -218,7 +218,7 @@ footer {
         margin: 0 100px;
     }
     #description-box ul {
-        margin: 15px 20px 15px 180px;
+        margin: 10px 20px 30px 180px;
     }
 }
 
@@ -227,6 +227,6 @@ footer {
         margin: 0 200px;
     }
     #description-box ul {
-        margin: 15px 20px 15px 450px;
+        margin: 10px 20px 30px 450px;
     }
 }
