@@ -8,11 +8,12 @@ $(function() {
     getJson()
         .then(data => {
             endLoading();
+            // console.log(data);
             jsonArray = data;
             let readResultUl = '';
             for(let h = 0; h < jsonArray.length; h++) {
                 // readResultUl += `<h2>${sheet_name_list[h]}</h2><ul style="margin: 0 20px 70px 20px;">`;
-                readResultUl += `<h2>${jsonArray[h][0]['社会資源の種類']}</h2><ul style="margin: 0 20px 70px 20px;">`;
+                readResultUl += `<h2 class="ac-title">${jsonArray[h][0]['社会資源の種類']}</h2><div class="ac-content"><ul>`;
                 for(let i = 0; i < jsonArray[h].length; i++) {
                     readResultUl += `<li><b>${jsonArray[h][i]['名称']}</b>`;
                     if(jsonArray[h][i]['住所']) readResultUl += `<p>住所：${jsonArray[h][i]['住所']}</p>`;
@@ -20,9 +21,15 @@ $(function() {
                     if(jsonArray[h][i]['配達サービス'] == 'あり') readResultUl += '<p>配達サービス：あり</p>';
                     readResultUl += `<a href="./detail.html?id=${jsonArray[h][i]['id']}" style="color: #5341d3">詳細ページ</a></li><hr>`;
                 }
-                readResultUl += '</ul>';
+                readResultUl += '</ul></div>';
             }
-            document.getElementById('list-table').innerHTML = readResultUl;
+            document.getElementById('ac-container').innerHTML = readResultUl;
+            $(".ac-title").click(function() {
+                /* タップでコンテンツを開閉 */
+                $(this).next().slideToggle(400);
+                /* 矢印の向きを変更 */
+                $(this).toggleClass("open");
+            });
         })
         .catch(err => {
             console.log(err);
@@ -52,7 +59,7 @@ $(function() {
 });
 
 function endLoading() {
-    // 1秒かけてロゴを非表示にし、その後0.8秒かけて背景を非表示にする。
+    // 0.5秒かけてロゴを非表示にし、その後0.3秒かけて背景を非表示にする。
     $('#loading img, #loading p').fadeOut(500, function() {
         $('#loading').fadeOut(300);
     });

@@ -161,19 +161,47 @@ header {
 .menu li {
     border-top: 1px solid lightgray;
 }
-/* .menu li:first-child {
-    color: white;
-    background-color: darkslategray;
-    text-align: center;
-    line-height: 40px;
-    font-size: 12px;
-    border-top: none;
-} */
 .menu li a {
     display: block;
     padding: 0 25px;
 }
 /* ここまでヘッダー関係 */
+
+/* ここからアコーディオン関係 */
+.ac-title {
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0.625em 0.625em 0.625em 2em;
+    font-size: 20px;
+    background-color: #eeffee;
+    border-bottom: solid 1px white;
+}
+.ac-title::after {
+    content: "";
+    position: absolute;
+    right: 25px;
+    top: 38%;
+    transition: all 0.2s ease-in-out;
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-top: solid 2px black;
+    border-right: solid 2px black;
+    -webkit-transform: rotate(135deg);
+    transform: rotate(135deg);
+}
+.ac-title.open::after {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    top: 45%;
+}
+.ac-content {
+    display: none;
+    padding-left: 15px;
+    margin: 10px 0 50px 0;
+}
+/* ここまでアコーディオン関係 */
 
 h1 {
     text-align: center;
@@ -183,11 +211,6 @@ h1 {
     text-align: center;
     margin: 0 20px 50px 20px;
 }
-h2 {
-    margin: 0 0 15px 20px;
-    color: rgb(2, 99, 26);
-}
-
 footer {
     text-align: center;
     height: 30px;
