@@ -54,7 +54,6 @@
     <div id="inasa-map"></div>
 
     <div id="checkbox">
-        <!-- <input id="check-close" type="button" value="閉じる"> -->
         <a id="check-open-close">閉じる</a>
         <input id="acd-check" type="checkbox" checked><label id="acd-label" for="acd-check">「できること検索」を開閉する</label>
         <div id="acd-content">
@@ -80,11 +79,8 @@
                 <input id="check8" type="checkbox" name="dekirukoto" value="出かける" checked><label for="check8">出かける</label>
                 <input id="check9" type="checkbox" name="dekirukoto" value="ボランティア" checked><label for="check9">ボランティア</label>
             </form>
-            <!-- <input type="button" value="すべてにチェック" onclick="checkAll()"> -->
             <a class="check-all-none" onclick="checkAll()">すべてにチェック</a>
-            <!-- <input type="button" value="すべてのチェックを外す" onclick="checkNone()"> -->
             <a class="check-all-none" onclick="checkNone()">すべてのチェックを外す</a><br class="br-350">
-            <!-- <input id="search-button" type="button" value="検索する" onclick="dkrSearch(); gtag('event', 'tap', {'event_category': 'dkrSearch', 'event_label': 'dkrSearch-tap', 'value': '1'})"> -->
             <a id="search-button" onclick="dkrSearch(); gtag('event', 'tap', {'event_category': 'dkrSearch', 'event_label': 'dkrSearch-tap', 'value': '1'})">検索する</a>
         </div>
         <p id="hit-count"></p>
@@ -131,7 +127,6 @@
     </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.8/xlsx.full.min.js"></script>
     <script src="./js/map.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDV05EwCTbPPsWFDyhspJW-OoRDu13U3TI" async defer></script>
     <!-- 「&callback=initMap」を削除 -->
