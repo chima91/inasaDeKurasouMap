@@ -1,4 +1,6 @@
-$(function() {
+import $ from "jquery";
+
+export function hamburger() {
     $("#hamburger").click(function() {
         $(this).toggleClass("ham-open");
         if($(this).hasClass("ham-open")) {
@@ -20,4 +22,4 @@ $(function() {
             "opacity":"0"
         })
     });
-});
+}

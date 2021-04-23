@@ -1,4 +1,5 @@
 .DS_Store
 assets/
-*.xlsx
 sitemap.xml
+*.log
+node_modules/

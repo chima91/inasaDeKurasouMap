@@ -1,7 +1,10 @@
-$(function() {
+import $ from "jquery";
+import { endLoading } from "./endLoading";
+
+export function list() {
     let jsonArray;
     async function getJson() {
-        const res = await fetch('https://script.google.com/macros/s/AKfycbwGujh3rbX9fIS_wDCZQMlBuI_IhJQQJK5WMYiqik7QQcsIwj4yLIoU/exec');
+        const res = await fetch('https://script.googleusercontent.com/macros/echo?user_content_key=IU_majGmfwhE3mUp_8IbeYXMZGsM-xSgesgOrQlxeRjbEWKzN7lNy_NWu5oeFUl8ERpuU1kNWNH6EBN5xJyYeLTOpHM97A3Im5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnC-NnOpEyNUv90qldEvbLL6Xz1GBq_6Bya6TkKlYhFQE4JamSXLtQT8AI_WHbeHRt2Oqk0FkhV_QGGaU2pP6Ntk&lib=MLUBSv-keSXYUu5ZSNCbXyjlewnNH1PVR');
         const data = await res.json();
         return data;
     }
@@ -34,54 +37,4 @@ $(function() {
         .catch(err => {
             console.log(err);
         })
-
-    $("#hamburger").click(function() {
-        $(this).toggleClass("ham-open");
-        if($(this).hasClass("ham-open")) {
-            $("#menu-black-close").css({
-                "z-index":"2",
-                "opacity":".7"
-            })
-        } else {
-            $("#menu-black-close").css({
-                "z-index":"-1",
-                "opacity":"0"
-            })
-        }
-    });
-    $("#menu-black-close").click(function() {
-        $("#hamburger").removeClass("ham-open");
-        $(this).css({
-            "z-index":"-1",
-            "opacity":"0"
-        })
-    });
-});
-
-function endLoading() {
-    // 0.5秒かけてロゴを非表示にし、その後0.3秒かけて背景を非表示にする。
-    $('#loading img, #loading p').fadeOut(500, function() {
-        $('#loading').fadeOut(300);
-    });
 }
-
-// function getExcel(url) {
-//     let req = new XMLHttpRequest();
-//     req.open("GET", url, true);
-//     req.responseType = "arraybuffer";
-//     req.send();
-
-//     let jsonList = [];
-//     req.onload = function() {
-//         let uint8 = new Uint8Array(req.response);
-//         let workbook = XLSX.read(uint8, {type: "array"});
-//         sheet_name_list = workbook.SheetNames; // グローバル変数
-//         for(let t = 0; t < sheet_name_list.length; t++) {
-//             let sheet = XLSX.utils.sheet_to_json(workbook.Sheets[sheet_name_list[t]]);
-//             jsonList.push(sheet);
-//         }
-//     };
-
-//     return jsonList;
-// }
-// let jsonArray = getExcel('./inasa-syakaishigen20201228.xlsx');
