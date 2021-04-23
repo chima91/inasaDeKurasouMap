@@ -1,20 +1,8 @@
-import "core-js/stable";
-import "regenerator-runtime/runtime";
 import $ from "jquery";
 import { hamburger } from "./hamburger";
-import { modalToggle } from "./modalToggle";
-import { map } from "./map";
-import { list } from "./list";
-import { detail } from "./detail";
-import { subCheck } from "./subCheck";
 
 $(function() {
     hamburger();
-    subCheck();
-    modalToggle();
-    map();
-    list();
-    detail();
 });
 
 // function getExcel(url) {

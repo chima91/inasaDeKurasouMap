@@ -1,8 +1,16 @@
+const path = require('path');
+const outputPath = path.resolve(__dirname, 'dist');
+
 module.exports = {
-    entry: "./src/index.js",
+    entry: {
+        index: "./src/index.js",
+        map: "./src/map.js",
+        detail: "./src/detail.js",
+        list: "./src/list.js"
+    },
     output: {
         path: `${__dirname}/dist`,
-        filename: "main.js"
+        filename: "[name].bundle.js"
     },
     // モード値を production に設定すると最適化された状態で、
     // development に設定するとソースマップ有効でJSファイルが出力される
@@ -34,7 +42,7 @@ module.exports = {
     // ローカル開発用環境を立ち上げる
     // 実行時にブラウザが自動的に localhost を開く
     devServer: {
-        contentBase: "inasa-map",
+        contentBase: outputPath,
         open: true
     }
 };
