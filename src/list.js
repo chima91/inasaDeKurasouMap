@@ -17,7 +17,6 @@ async function getJson() {
 getJson()
     .then(data => {
         endLoading();
-        // console.log(data);
         jsonArray = data;
         let readResultUl = '';
         for(let h = 0; h < jsonArray.length; h++) {

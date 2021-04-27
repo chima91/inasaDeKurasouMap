@@ -79,16 +79,16 @@
                 <input id="check8" type="checkbox" name="dekirukoto" value="出かける" checked><label for="check8">出かける</label>
                 <input id="check9" type="checkbox" name="dekirukoto" value="ボランティア" checked><label for="check9">ボランティア</label>
             </form>
-            <a class="check-all-none" onclick="checkAll()">すべてにチェック</a>
-            <a class="check-all-none" onclick="checkNone()">すべてのチェックを外す</a><br class="br-350">
-            <a id="search-button" onclick="dkrSearch(); gtag('event', 'tap', {'event_category': 'dkrSearch', 'event_label': 'dkrSearch-tap', 'value': '1'})">検索する</a>
+            <a id="check-all" class="check-all-none">すべてにチェック</a>
+            <a id="check-none" class="check-all-none">すべてのチェックを外す</a><br class="br-350">
+            <a id="search-button" onclick="gtag('event', 'tap', {'event_category': 'dkrSearch', 'event_label': 'dkrSearch-tap', 'value': '1'})">検索する</a>
         </div>
         <p id="hit-count"></p>
         <hr>
         <ul id="check-result"></ul>
     </div>
 
-    <a id="current-location-button" onclick="getCurrentLocation(); gtag('event', 'tap', {'event_category': 'getCurrentLocation', 'event_label': 'getCurrentLocation-tap', 'value': '1'})">現在地を取得</a>
+    <a id="current-location-button" onclick="gtag('event', 'tap', {'event_category': 'getCurrentLocation', 'event_label': 'getCurrentLocation-tap', 'value': '1'})">現在地を取得</a>
 
     <a id="modal-open-btn" href="">アイコンの凡例を表示</a>
     <div id="modal-wrapper">
