@@ -26,11 +26,9 @@ module.exports = {
     module: {
         rules: [
             {
-                // 拡張子 .js の場合
-                test: /\.js$/,
+                test: /\.js$/, // 対象となるファイルの拡張子
                 use: [
                     {
-                        // Babel を利用する
                         loader: "babel-loader",
                         options: {
                             presets: [
@@ -42,9 +40,7 @@ module.exports = {
                 ],
             },
             {
-                // 対象となるファイルの拡張子
-                test: /\.css/,
-                // ローダー名
+                test: /\.scss/, // 対象となるファイルの拡張子
                 use: [
                     // linkタグに出力する機能
                     "style-loader",
@@ -52,13 +48,24 @@ module.exports = {
                     {
                         loader: "css-loader",
                         options: {
-                        // オプションでCSS内のurl()メソッドの取り込みを禁止する
-                        url: false,
-                        // ソースマップを有効にする
-                        sourceMap: enabledSourceMap
+                            // オプションでCSS内のurl()メソッドの取り込みを禁止する
+                            url: false,
+                            // ソースマップの利用有無
+                            sourceMap: enabledSourceMap,
+                            // 0 => no loaders (default);
+                            // 1 => postcss-loader;
+                            // 2 => postcss-loader, sass-loader
+                            importLoaders: 2
                         }
-                    }
-                ]
+                    },
+                    {
+                        loader: "sass-loader",
+                        options: {
+                            // ソースマップの利用有無
+                            sourceMap: enabledSourceMap
+                        },
+                    },
+                ],
             },
         ],
     },

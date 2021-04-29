@@ -1,0 +1,40 @@
+@charset "utf-8";
+@import "reset", "header", "loading";
+
+h1 {
+    text-align: center;
+    color: white;
+    background-color: black;
+    margin: 10px 0 0 0;
+    font-size: 22px;
+}
+#detail {
+    margin: 20px 0 20px 10px;
+}
+#detail-url {
+    color: #5341d3;
+}
+#link-div {
+    text-align: center;
+}
+.detail-link {
+    display: inline-block;
+    margin: 15px 5px;
+    padding: 10px;
+    border: 1px solid #557755;
+    border-radius: 5px;
+}
+footer {
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    font-size: 10px;
+    color: white;
+    background-color: darkslategray;
+}
+
+@media (min-width: 768px) {
+    h1 {
+        font-size: 32px;
+    }
+}
