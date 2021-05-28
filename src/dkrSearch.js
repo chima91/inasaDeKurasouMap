@@ -24,15 +24,15 @@ export function dkrSearch() {
                         visibleCount++;
                         checkResultUl += `<li><b>${jsonArray[h][i]['名称']}（<a href="./detail.html?id=${jsonArray[h][i]['id']}" style="color: #ccccee">詳細ページ</a>）</b>`;
                         if(jsonArray[h][i]['住所']) checkResultUl += `<p>${jsonArray[h][i]['住所']}</p>`;
-                        if(jsonArray[h][0]['社会資源の種類'] == '介護サービス事業所') checkResultUl += '<img src="./img/koureisya-icon.png" style="display: inline-block; width: 40px; height: 40px; margin: 3px 15px 0 3px">';
-                        if(jsonArray[h][0]['社会資源の種類'] == '障害サービス事業所') checkResultUl += '<img src="./img/syougaisya-icon.png" style="display: inline-block; width: 40px; height: 40px; margin: 3px 15px 0 3px">';
+                        if(jsonArray[h][0]['社会資源の種類'] == '介護サービス事業所') checkResultUl += '<img src="./img/dkrSearch-icon/koureisya.png" style="display: inline-block; width: 40px; height: 40px; margin: 3px 15px 0 3px">';
+                        if(jsonArray[h][0]['社会資源の種類'] == '障害サービス事業所') checkResultUl += '<img src="./img/dkrSearch-icon/syougaisya.png" style="display: inline-block; width: 40px; height: 40px; margin: 3px 15px 0 3px">';
                         if(jsonArray[h][i]['種別']) {
-                            if(jsonArray[h][i]['種別'].includes('デイサービス')) checkResultUl += '<img src="./img/icon-day.png" style="display: inline-block; width: 45px; height: 40px; margin: 3px 5px 0 0">';
-                            if(jsonArray[h][i]['種別'].includes('ヘルパー')) checkResultUl += '<img src="./img/icon-helper.png" style="display: inline-block; width: 45px; height: 40px; margin: 3px 5px 0 0">';
-                            if(jsonArray[h][i]['種別'].includes('ショートステイ')) checkResultUl += '<img src="./img/icon-short.png" style="display: inline-block; width: 45px; height: 40px; margin: 3px 5px 0 0">';
-                            if(jsonArray[h][i]['種別'].includes('入所施設')) checkResultUl += '<img src="./img/icon-nyuusyo.png" style="display: inline-block; width: 45px; height: 40px; margin: 3px 5px 0 0">';
-                            if(jsonArray[h][i]['種別'].includes('就労支援')) checkResultUl += '<img src="./img/icon-syuurou.png" style="display: inline-block; width: 45px; height: 40px; margin: 3px 5px 0 0">';
-                            if(jsonArray[h][i]['種別'].includes('相談窓口')) checkResultUl += '<img src="./img/icon-soudan.png" style="display: inline-block; width: 45px; height: 40px; margin: 3px 5px 0 0">';
+                            if(jsonArray[h][i]['種別'].includes('デイサービス')) checkResultUl += '<img src="./img/dkrSearch-icon/day.png" style="display: inline-block; width: 45px; height: 40px; margin: 3px 5px 0 0">';
+                            if(jsonArray[h][i]['種別'].includes('ヘルパー')) checkResultUl += '<img src="./img/dkrSearch-icon/helper.png" style="display: inline-block; width: 45px; height: 40px; margin: 3px 5px 0 0">';
+                            if(jsonArray[h][i]['種別'].includes('ショートステイ')) checkResultUl += '<img src="./img/dkrSearch-icon/short.png" style="display: inline-block; width: 45px; height: 40px; margin: 3px 5px 0 0">';
+                            if(jsonArray[h][i]['種別'].includes('入所施設')) checkResultUl += '<img src="./img/dkrSearch-icon/nyuusyo.png" style="display: inline-block; width: 45px; height: 40px; margin: 3px 5px 0 0">';
+                            if(jsonArray[h][i]['種別'].includes('就労支援')) checkResultUl += '<img src="./img/dkrSearch-icon/syuurou.png" style="display: inline-block; width: 45px; height: 40px; margin: 3px 5px 0 0">';
+                            if(jsonArray[h][i]['種別'].includes('相談窓口')) checkResultUl += '<img src="./img/dkrSearch-icon/soudan.png" style="display: inline-block; width: 45px; height: 40px; margin: 3px 5px 0 0">';
                         }
                         checkResultUl += '</li><hr>'
                     }
