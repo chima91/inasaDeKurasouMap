@@ -3,7 +3,7 @@ import "regenerator-runtime/runtime";
 import $ from "jquery";
 import { hamburger } from "./hamburger";
 import { endLoading } from "./endLoading";
-import "./list.scss";
+import "../scss/list.scss";
 
 $(function() {
     hamburger();
