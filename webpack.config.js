@@ -1,9 +1,5 @@
-// [定数] webpack の出力オプションを指定します
-// 'production' か 'development' を指定
-const MODE = "production";
-
-// ソースマップの利用有無(productionのときはソースマップを利用しない)
-const enabledSourceMap = MODE === "development";
+const MODE = "production"; // webpack の出力オプション（'production' か 'development'）を指定：モード値を production に設定すると最適化された状態で、development に設定するとソースマップ有効でJSファイルが出力される
+const enabledSourceMap = MODE === "development"; // ソースマップの利用有無(modeがproductionのときはソースマップを利用しない)
 
 const path = require('path');
 const outputPath = path.resolve(__dirname, 'dist');
@@ -19,8 +15,6 @@ module.exports = {
         path: `${__dirname}/dist`,
         filename: "[name].bundle.js"
     },
-    // モード値を production に設定すると最適化された状態で、
-    // development に設定するとソースマップ有効でJSファイルが出力される
     mode: MODE,
 
     module: {
@@ -32,8 +26,7 @@ module.exports = {
                         loader: "babel-loader",
                         options: {
                             presets: [
-                                // プリセットを指定することで、ES2020 を ES5 に変換
-                                "@babel/preset-env"
+                                "@babel/preset-env" // プリセットを指定することで、ES2020 を ES5 に変換
                             ],
                         },
                     },
@@ -42,27 +35,19 @@ module.exports = {
             {
                 test: /\.scss/, // 対象となるファイルの拡張子
                 use: [
-                    // linkタグに出力する機能
-                    "style-loader",
-                    // CSSをバンドルするための機能
-                    {
+                    "style-loader",  // linkタグに出力するためのローダー
+                    {  // CSSをバンドルするためのローダー
                         loader: "css-loader",
                         options: {
-                            // オプションでCSS内のurl()メソッドの取り込みを禁止する
-                            url: false,
-                            // ソースマップの利用有無
-                            sourceMap: enabledSourceMap,
-                            // 0 => no loaders (default);
-                            // 1 => postcss-loader;
-                            // 2 => postcss-loader, sass-loader
-                            importLoaders: 2
+                            url: false, // オプションでCSS内のurl()メソッドの取り込みを禁止する
+                            sourceMap: enabledSourceMap, // ソースマップの利用有無
+                            importLoaders: 2 // 0 => no loaders (default); 1 => postcss-loader; 2 => postcss-loader, sass-loader
                         }
                     },
-                    {
+                    {  // SassをコンパイルしCSSに変換するためのローダー
                         loader: "sass-loader",
                         options: {
-                            // ソースマップの利用有無
-                            sourceMap: enabledSourceMap
+                            sourceMap: enabledSourceMap // ソースマップの利用有無
                         },
                     },
                 ],
@@ -70,13 +55,10 @@ module.exports = {
         ],
     },
 
-    // ES5(IE11等)向けの指定
-    target: ["web", "es5"],
-
-    // ローカル開発用環境を立ち上げる
-    devServer: {
+    target: ["web", "es5"], // ES5(IE11等)向けの指定
+    devServer: { // ローカル開発用環境を立ち上げる
         contentBase: outputPath,
         open: true  // サーバー起動時にブラウザも開きなさいという意味。実行時にブラウザが自動的に localhost を開く。
     },
-    devtool: 'eval-source-map'
+    devtool: 'eval-source-map' // ソースマップの品質を指定（デフォルトはeval）
 };
