@@ -1,5 +1,7 @@
 @charset "utf-8";
-@import "reset", "header", "loading";
+@use "reset";
+@use "header";
+@use "loading";
 
 #inasa-map {
     width: 100vw;
