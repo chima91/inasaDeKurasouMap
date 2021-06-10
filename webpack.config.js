@@ -6,10 +6,10 @@ const outputPath = path.resolve(__dirname, 'dist');
 
 module.exports = {
     entry: {
-        index: "./src/index.js",
-        map: "./src/map.js",
-        detail: "./src/detail.js",
-        list: "./src/list.js"
+        index: "./src/js/index.js",
+        map: "./src/js/map.js",
+        detail: "./src/js/detail.js",
+        list: "./src/js/list.js"
     },
     output: {
         path: `${__dirname}/dist`,
