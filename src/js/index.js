@@ -1,6 +1,6 @@
 import $ from "jquery";
 import { hamburger } from "./hamburger";
-import "../scss/index.scss"
+import "../scss/index.scss";
 
 $(function() {
     hamburger();
