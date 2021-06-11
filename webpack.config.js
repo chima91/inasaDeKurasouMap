@@ -17,10 +17,23 @@ module.exports = {
         path: `${__dirname}/dist`,
         filename: "[name].bundle.js"
     },
+    // optimization: {
+    //     splitChunks: {
+    //         name: "commonlib",
+    //         chunks: "initial"
+    //     }
+    // },
     mode: MODE,
 
     module: {
         rules: [
+            // {
+            //     test: /\.ejs$/, // 対象となるファイルの拡張子
+            //     use: [
+            //         "html-loader", // htmlを解釈し、htmlを出力するjavascriptを出力するためのローダー
+            //         "ejs-html-loader" // ejsをhtmlにコンパイルするためのローダー
+            //     ],
+            // },
             {
                 test: /\.js$/, // 対象となるファイルの拡張子
                 use: [
@@ -57,6 +70,25 @@ module.exports = {
         ],
     },
 
+    // plugins: [
+    //     new HtmlWebpackPlugin({ // 最終的なhtmlに変換するためのプラグイン
+    //         filename: "index.html",
+    //         template: "src/ejs/index.ejs"
+    //     }),
+    //     new HtmlWebpackPlugin({
+    //         filename: "map.html",
+    //         template: "src/ejs/map.ejs"
+    //     }),
+    //     new HtmlWebpackPlugin({
+    //         filename: "detail.html",
+    //         template: "src/ejs/detail.ejs"
+    //     }),
+    //     new HtmlWebpackPlugin({
+    //         filename: "list.html",
+    //         template: "src/ejs/list.ejs"
+    //     })
+    // ],
+
     target: ["web", "es5"], // ES5(IE11等)向けの指定
     devServer: { // ローカル開発用環境を立ち上げる
         contentBase: outputPath,
@@ -64,32 +96,3 @@ module.exports = {
     },
     devtool: 'eval-source-map' // ソースマップの品質を指定（デフォルトはeval）
 };
-
-
-
-// {
-//     test: /\.ejs$/, // 対象となるファイルの拡張子
-//     use: [
-//         "html-loader", // htmlを解釈し、htmlを出力するjavascriptを出力するためのローダー
-//         "ejs-html-loader" // ejsをhtmlにコンパイルするためのローダー
-//     ],
-
-//     plugins: [
-//         new HtmlWebpackPlugin({ // 最終的なhtmlに変換するためのプラグイン
-//             filename: "index.html",
-//             template: "src/ejs/index.ejs"
-//         }),
-//         new HtmlWebpackPlugin({
-//             filename: "map.html",
-//             template: "src/ejs/map.ejs"
-//         }),
-//         new HtmlWebpackPlugin({
-//             filename: "detail.html",
-//             template: "src/ejs/detail.ejs"
-//         }),
-//         new HtmlWebpackPlugin({
-//             filename: "list.html",
-//             template: "src/ejs/list.ejs"
-//         })
-//     ],
-// }
