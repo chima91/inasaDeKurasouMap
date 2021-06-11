@@ -4,6 +4,8 @@ const enabledSourceMap = MODE === "development"; // ソースマップの利用�
 const path = require('path');
 const outputPath = path.resolve(__dirname, 'dist');
 
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
     entry: {
         index: "./src/js/index.js",
@@ -33,7 +35,7 @@ module.exports = {
                 ],
             },
             {
-                test: /\.scss/, // 対象となるファイルの拡張子
+                test: /\.scss$/, // 対象となるファイルの拡張子
                 use: [
                     "style-loader",  // linkタグに出力するためのローダー
                     {  // CSSをバンドルするためのローダー
@@ -44,7 +46,7 @@ module.exports = {
                             importLoaders: 2 // 0 => no loaders (default); 1 => postcss-loader; 2 => postcss-loader, sass-loader
                         }
                     },
-                    {  // SassをコンパイルしCSSに変換するためのローダー
+                    {  // SassをCSSにコンパイルするためのローダー
                         loader: "sass-loader",
                         options: {
                             sourceMap: enabledSourceMap // ソースマップの利用有無
@@ -62,3 +64,32 @@ module.exports = {
     },
     devtool: 'eval-source-map' // ソースマップの品質を指定（デフォルトはeval）
 };
+
+
+
+// {
+//     test: /\.ejs$/, // 対象となるファイルの拡張子
+//     use: [
+//         "html-loader", // htmlを解釈し、htmlを出力するjavascriptを出力するためのローダー
+//         "ejs-html-loader" // ejsをhtmlにコンパイルするためのローダー
+//     ],
+
+//     plugins: [
+//         new HtmlWebpackPlugin({ // 最終的なhtmlに変換するためのプラグイン
+//             filename: "index.html",
+//             template: "src/ejs/index.ejs"
+//         }),
+//         new HtmlWebpackPlugin({
+//             filename: "map.html",
+//             template: "src/ejs/map.ejs"
+//         }),
+//         new HtmlWebpackPlugin({
+//             filename: "detail.html",
+//             template: "src/ejs/detail.ejs"
+//         }),
+//         new HtmlWebpackPlugin({
+//             filename: "list.html",
+//             template: "src/ejs/list.ejs"
+//         })
+//     ],
+// }
