@@ -4,7 +4,7 @@ const enabledSourceMap = MODE === "development"; // ソースマップの利用�
 const path = require('path');
 const outputPath = path.resolve(__dirname, 'dist');
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -27,13 +27,6 @@ module.exports = {
 
     module: {
         rules: [
-            // {
-            //     test: /\.ejs$/, // 対象となるファイルの拡張子
-            //     use: [
-            //         "html-loader", // htmlを解釈し、htmlを出力するjavascriptを出力するためのローダー
-            //         "ejs-html-loader" // ejsをhtmlにコンパイルするためのローダー
-            //     ],
-            // },
             {
                 test: /\.js$/, // 対象となるファイルの拡張子
                 use: [
@@ -70,25 +63,6 @@ module.exports = {
         ],
     },
 
-    // plugins: [
-    //     new HtmlWebpackPlugin({ // 最終的なhtmlに変換するためのプラグイン
-    //         filename: "index.html",
-    //         template: "src/ejs/index.ejs"
-    //     }),
-    //     new HtmlWebpackPlugin({
-    //         filename: "map.html",
-    //         template: "src/ejs/map.ejs"
-    //     }),
-    //     new HtmlWebpackPlugin({
-    //         filename: "detail.html",
-    //         template: "src/ejs/detail.ejs"
-    //     }),
-    //     new HtmlWebpackPlugin({
-    //         filename: "list.html",
-    //         template: "src/ejs/list.ejs"
-    //     })
-    // ],
-
     target: ["web", "es5"], // ES5(IE11等)向けの指定
     devServer: { // ローカル開発用環境を立ち上げる
         contentBase: outputPath,
@@ -96,3 +70,39 @@ module.exports = {
     },
     devtool: 'eval-source-map' // ソースマップの品質を指定（デフォルトはeval）
 };
+
+// const ejsCompile = {
+//     entry: "./src/ejs/index.ejs",
+//     output: {
+//         path: `${__dirname}/dist`,
+//         filename: "[name].html"
+//     },
+//     // mode: MODE,
+
+//     module: {
+//         rules: [
+//         // {
+//         //     test: /\.(jpe?g|png|gif|svg)$/,
+//         //     use: {
+//             //     loader: 'file-loader',
+//             //     options: {
+//             //         name: '../img/[name].[ext]',
+//             //     }
+//         //     }
+//         // },
+//             {
+//                 test: /\.ejs$/,
+//                 use: [
+//                     'html-loader',
+//                     'ejs-plain-loader'
+//                 ]
+//             },
+//         ]
+//     },
+//     plugins: [
+//         new HtmlWebpackPlugin({
+//             filename: 'index.html',
+//             template : 'src/ejs/index.ejs',
+//         })
+//     ]
+// }
