@@ -71,22 +71,22 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template:  'src/ejs/index.ejs',
-            chunks: 'index'
+            chunks: ['index']
         }),
         new HtmlWebpackPlugin({
             filename: 'map.html',
             template:  'src/ejs/map.ejs',
-            chunks: 'map'
+            chunks: ['map']
         }),
         new HtmlWebpackPlugin({
             filename: 'detail.html',
             template:  'src/ejs/detail.ejs',
-            chunks: 'detail'
+            chunks: ['detail']
         }),
         new HtmlWebpackPlugin({
             filename: 'list.html',
             template:  'src/ejs/list.ejs',
-            chunks: 'list'
+            chunks: ['list']
         }),
     ],
 
