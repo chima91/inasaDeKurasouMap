@@ -10,7 +10,7 @@ import { dkrSearch } from "./dkrSearch";
 import { getCurrentLocation } from "./getCurrentLocation";
 import { modalToggle } from "./modalToggle";
 import { endLoading } from "./endLoading";
-import "./map.scss";
+import "../scss/map.scss";
 
 export let jsonArray;
 async function getJson() {
