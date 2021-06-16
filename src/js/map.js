@@ -1,6 +1,5 @@
 import "core-js/stable";
 import "regenerator-runtime/runtime";
-import $ from "jquery";
 import { hamburger } from "./hamburger";
 import { checkOpenClose } from "./checkOpenClose";
 import { checkAll } from "./checkAll";
@@ -101,13 +100,11 @@ function initMap() {
     document.getElementById('hit-count').textContent = `引佐町には${markers.length}件の社会資源があります！`;
 }
 
-$(function() {
-    hamburger();
-    checkOpenClose();
-    checkAll();
-    checkNone();
-    subCheck();
-    dkrSearch();
-    getCurrentLocation();
-    modalToggle();
-});
+hamburger();
+checkOpenClose();
+checkAll();
+checkNone();
+subCheck();
+dkrSearch();
+getCurrentLocation();
+modalToggle();
