@@ -1,13 +1,8 @@
 import "core-js/stable";
 import "regenerator-runtime/runtime";
-import $ from "jquery";
 import { hamburger } from "./hamburger";
 import { endLoading } from "./endLoading";
 import "../scss/detail.scss";
-
-$(function() {
-    hamburger();
-});
 
 let jsonArray;
 async function getJson() {
@@ -77,3 +72,5 @@ getJson()
     .catch(err => {
         console.log(err);
     })
+
+hamburger();
