@@ -1,11 +1,10 @@
-import $ from "jquery";
 import { jsonArray, markers } from './map';
 
 let dkrList = document.form1.dekirukoto;
 export let dekirukotoList = dkrList;
 // チェックボックスで検索する関数
 export function dkrSearch() {
-    $("#search-button").on("click", () => {
+    document.querySelector("#search-button").addEventListener("click", () => {
         let dkrSearchCount = 0;
         let visibleCount = 0;
         let checkResultUl = '';
