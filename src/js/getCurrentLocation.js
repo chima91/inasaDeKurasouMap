@@ -1,9 +1,8 @@
-import $ from "jquery";
 import { exportMap1 } from "./map";
 
 export function getCurrentLocation() {
     let currentMarker;
-    $("#current-location-button").on("click", () => {
+    document.querySelector("#current-location-button").addEventListener("click", () => {
         if(!navigator.geolocation) return;
 
         let currentLocateImg = {
