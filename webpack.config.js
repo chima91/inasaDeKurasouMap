@@ -15,7 +15,8 @@ module.exports = {
     },
     output: {
         path: `${__dirname}/dist`,
-        filename: "[name].bundle.js"
+        filename: "[name].bundle.js",
+        // assetModuleFilename: 'src/img/[name][ext]'
     },
     // optimization: {
     //     splitChunks: {
@@ -44,6 +45,10 @@ module.exports = {
                     },
                 ],
             },
+            // {
+            //     test: /\.(png|gif)$/,
+            //     type: 'asset/resource'
+            // },
             {
                 test: /\.scss$/, // 対象となるファイルの拡張子
                 use: [
