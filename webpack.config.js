@@ -30,7 +30,10 @@ module.exports = {
         rules: [
             {
                 test: /\.ejs$/,
-                use: 'ejs-compiled-loader',
+                use: [
+                    "html-loader",
+                    "ejs-plain-loader"
+                ]
             },
             {
                 test: /\.js$/, // 対象となるファイルの拡張子
@@ -75,22 +78,22 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             filename: 'index.html',
-            template:  'src/ejs/index.ejs',
+            template:  './src/ejs/index.ejs',
             chunks: ['index']
         }),
         new HtmlWebpackPlugin({
             filename: 'map.html',
-            template:  'src/ejs/map.ejs',
+            template:  './src/ejs/map.ejs',
             chunks: ['map']
         }),
         new HtmlWebpackPlugin({
             filename: 'detail.html',
-            template:  'src/ejs/detail.ejs',
+            template:  './src/ejs/detail.ejs',
             chunks: ['detail']
         }),
         new HtmlWebpackPlugin({
             filename: 'list.html',
-            template:  'src/ejs/list.ejs',
+            template:  './src/ejs/list.ejs',
             chunks: ['list']
         }),
     ],

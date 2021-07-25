@@ -1,98 +1,61 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QRP303RK1B"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+<%
+  const indexMeta = {
+    description: '「いなさで暮らそうマップ」にようこそ！ここでは、引佐町にある7種類の社会資源を閲覧することができます。そして、これらの社会資源を9種類の「できること」別に検索することで、あなたの目的にあった社会資源を見つけましょう。',
+    pageURL: 'https://www.sugilab.net/inasa-map/index.html',
+    title: 'いなさで暮らそうマップ'
+  }
+%>
 
-    gtag('config', 'G-QRP303RK1B');
-    </script>
-    <meta name="google-site-verification" content="HH8OmLDX7mpmt1zHc065gxHQQZc9di8S01cSxBPqnrk" />
-    <meta charset="UTF-8" />
-    <meta name="description" content="「いなさで暮らそうマップ」にようこそ！ここでは、引佐町にある7種類の社会資源を閲覧することができます。そして、これらの社会資源を9種類の「できること」別に検索することで、あなたの目的にあった社会資源を見つけましょう。" />
-    <meta property="og:url" content="https://www.sugilab.net/inasa-map/index.html" />
-    <meta property="og:title" content="いなさで暮らそうマップ" />
-    <meta property="og:description" content="「いなさで暮らそうマップ」にようこそ！ここでは、引佐町にある7種類の社会資源を閲覧することができます。そして、これらの社会資源を9種類の「できること」別に検索することで、あなたの目的にあった社会資源を見つけましょう。" />
-    <meta property="og:image" content="https://www.sugilab.net/inasa-map/img/logo.png" />
-    <meta name="twitter:card" content="summary" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>いなさで暮らそうマップ</title>
-    <link rel="icon" href="./img/favicon.png" sizes="16x16" type="image/png" />
-    <link rel="icon" href="./img/favicon.png" sizes="32x32" type="image/png" />
-    <link rel="icon" href="./img/favicon.png" sizes="48x48" type="image/png" />
-    <link rel="icon" href="./img/favicon.png" sizes="62x62" type="image/png" />
-    <link rel="apple-touch-icon-precomposed" href="./img/favicon.png" />
-    <meta name="msapplication-TileImage" content="./img/favicon.png" />
-    <meta name="msapplication-TileColor" content="#cdeecd"/>
-</head>
-<body>
-    <header>
-        <a id="bousai-link" href="https://hamabosai.maps.arcgis.com/apps/webappviewer/index.html?id=d4070f31679d487ab858eb38d1d6ae3a" target="_blank">浜松市防災マップ</a>
-        <a id="logo" href="./index.html"><img src="./img/logo.png" alt="「いなさで暮らそうマップ」のロゴ"></a>
-        <div id="hamburger"><span></span><span></span><span></span><span>メニュー</span></div>
-        <nav class="menu">
-            <ul>
-                <li class="menu-item"><a href="./map.html">地図検索ページ</a></li>
-                <li class="menu-item"><a href="./list.html">社会資源一覧ページ</a></li>
-                <li class="menu-item"><a href="https://hamabosai.maps.arcgis.com/apps/webappviewer/index.html?id=d4070f31679d487ab858eb38d1d6ae3a" target="_blank">浜松市防災マップ</a></li>
-                <li class="menu-item"><a href="https://www.city.hamamatsu.shizuoka.jp/n-machi/traffic/unkou/inasa/" target="_blank">いなさみどりバス</a></li>
-            </ul>
-        </nav>
-    </header>
-    <div id="menu-black-close"></div>
+<%- include('./_head.ejs', { meta: indexMeta }) %>
 
-    <h1 id="description-h1">「いなさで暮らそうマップ」にようこそ！</h1>
-    <div id="description-box">
-        <p>「いなさで暮らそうマップ」では、<br>引佐町にある7種類の社会資源を閲覧することができます。</p>
-        <ul>
-            <li><img class="syurui-icon" src="./img/pin-icon/yakkyoku.png" alt="薬局のアイコン">薬局</li>
-            <li><img class="syurui-icon" src="./img/pin-icon/kaigo.png" alt="介護サービス事業所のアイコン">介護サービス事業所</li>
-            <li><img class="syurui-icon" src="./img/pin-icon/syougai.png" alt="障害サービス事業所のアイコン">障害サービス事業所</li>
-            <li><img class="syurui-icon" src="./img/pin-icon/kissa.png" alt="喫茶店・カフェ・カラオケのアイコン">喫茶店・カフェ・カラオケ</li>
-            <li><img class="syurui-icon" src="./img/pin-icon/saron.png" alt="サロンのアイコン">サロン</li>
-            <li><img class="syurui-icon" src="./img/pin-icon/syouten.png" alt="商店のアイコン">商店</li>
-            <li><img class="syurui-icon" src="./img/pin-icon/volunteer.png" alt="ボランティアのアイコン">ボランティア</li>
-        </ul>
-        <p>これらの社会資源を9種類の「できること」別に検索することができます。</p>
-        <ul>
-            <li>買い物</li>
-            <li>集う</li>
-            <li>気分転換</li>
-            <li>体を動かす</li>
-            <li>刺激を受ける</li>
-            <li>食事</li>
-            <li>介護・医療サービスを利用する</li>
-            <li>出かける</li>
-            <li>ボランティア</li>
-        </ul>
-        <p>9種類の「できること」のどれかにチェックを入れた状態で「検索する」をタップすると、チェックを入れた「できること」に該当する社会資源が地図上に表示されます。<br><br>
-        また、「介護・医療サービスを利用する」にチェックを入れると、「薬局、デイ、ヘルパー、ショート、入所施設、就労支援、相談窓口」のチェックボックスが追加で表示されるため、より細かく検索することができます。<br>
-        「介護・医療サービスを利用する」に該当する社会資源は以下のアイコンで見分けることができます。</p>
-        <ul>
-            <li><img class="syurui-icon" src="./img/dkrSearch-icon/koureisya.png" alt="高齢者のアイコン">高齢者の方が主に利用</li>
-            <li><img class="syurui-icon" src="./img/dkrSearch-icon/syougaisya.png" alt="障害者のアイコン">障害者の方が主に利用</li>
-            <li><img class="syurui-icon" src="./img/dkrSearch-icon/day.png" alt="デイサービスのアイコン">デイ</li>
-            <li><img class="syurui-icon" src="./img/dkrSearch-icon/helper.png" alt="ホームヘルパーのアイコン">ヘルパー</li>
-            <li><img class="syurui-icon" src="./img/dkrSearch-icon/short.png" alt="ショートステイのアイコン">ショート</li>
-            <li><img class="syurui-icon" src="./img/dkrSearch-icon/nyuusyo.png" alt="入所施設のアイコン">入所施設</li>
-            <li><img class="syurui-icon" src="./img/dkrSearch-icon/syuurou.png" alt="就労支援のアイコン">就労支援</li>
-            <li><img class="syurui-icon" src="./img/dkrSearch-icon/soudan.png" alt="相談窓口のアイコン">相談窓口</li>
-        </ul>
-        <p>【アプリについてのお問い合わせ】<br>
-            地域包括支援センター細江 月〜金 午前8時30分〜午後5時15分<br>
-            電話：053-528-2288, FAX：053-542-2839<br><br>
-            ※なお、掲載しているサロンに関するお問い合わせは、以下までお願いします。<br>
-            引佐地区社会福祉協議会 月～金 午前10時～午後3時<br>電話/FAX：053-542-3206</p>
-    </div>
-    <a id="to-map" href="./map.html">はじめる</a>
+  <h1 id="description-h1">「いなさで暮らそうマップ」にようこそ！</h1>
+  <div id="description-box">
+      <p>「いなさで暮らそうマップ」では、<br>引佐町にある7種類の社会資源を閲覧することができます。</p>
+      <ul>
+          <li><img class="syurui-icon" src="../../dist/img/pin-icon/yakkyoku.png" alt="薬局のアイコン">薬局</li>
+          <li><img class="syurui-icon" src="../../dist/img/pin-icon/kaigo.png" alt="介護サービス事業所のアイコン">介護サービス事業所</li>
+          <li><img class="syurui-icon" src="../../dist/img/pin-icon/syougai.png" alt="障害サービス事業所のアイコン">障害サービス事業所</li>
+          <li><img class="syurui-icon" src="../../dist/img/pin-icon/kissa.png" alt="喫茶店・カフェ・カラオケのアイコン">喫茶店・カフェ・カラオケ</li>
+          <li><img class="syurui-icon" src="../../dist/img/pin-icon/saron.png" alt="サロンのアイコン">サロン</li>
+          <li><img class="syurui-icon" src="../../dist/img/pin-icon/syouten.png" alt="商店のアイコン">商店</li>
+          <li><img class="syurui-icon" src="../../dist/img/pin-icon/volunteer.png" alt="ボランティアのアイコン">ボランティア</li>
+      </ul>
+      <p>これらの社会資源を9種類の「できること」別に検索することができます。</p>
+      <ul>
+          <li>買い物</li>
+          <li>集う</li>
+          <li>気分転換</li>
+          <li>体を動かす</li>
+          <li>刺激を受ける</li>
+          <li>食事</li>
+          <li>介護・医療サービスを利用する</li>
+          <li>出かける</li>
+          <li>ボランティア</li>
+      </ul>
+      <p>9種類の「できること」のどれかにチェックを入れた状態で「検索する」をタップすると、チェックを入れた「できること」に該当する社会資源が地図上に表示されます。<br><br>
+      また、「介護・医療サービスを利用する」にチェックを入れると、「薬局、デイ、ヘルパー、ショート、入所施設、就労支援、相談窓口」のチェックボックスが追加で表示されるため、より細かく検索することができます。<br>
+      「介護・医療サービスを利用する」に該当する社会資源は以下のアイコンで見分けることができます。</p>
+      <ul>
+          <li><img class="syurui-icon" src="../../dist/img/dkrSearch-icon/koureisya.png" alt="高齢者のアイコン">高齢者の方が主に利用</li>
+          <li><img class="syurui-icon" src="../../dist/img/dkrSearch-icon/syougaisya.png" alt="障害者のアイコン">障害者の方が主に利用</li>
+          <li><img class="syurui-icon" src="../../dist/img/dkrSearch-icon/day.png" alt="デイサービスのアイコン">デイ</li>
+          <li><img class="syurui-icon" src="../../dist/img/dkrSearch-icon/helper.png" alt="ホームヘルパーのアイコン">ヘルパー</li>
+          <li><img class="syurui-icon" src="../../dist/img/dkrSearch-icon/short.png" alt="ショートステイのアイコン">ショート</li>
+          <li><img class="syurui-icon" src="../../dist/img/dkrSearch-icon/nyuusyo.png" alt="入所施設のアイコン">入所施設</li>
+          <li><img class="syurui-icon" src="../../dist/img/dkrSearch-icon/syuurou.png" alt="就労支援のアイコン">就労支援</li>
+          <li><img class="syurui-icon" src="../../dist/img/dkrSearch-icon/soudan.png" alt="相談窓口のアイコン">相談窓口</li>
+      </ul>
+      <p>【アプリについてのお問い合わせ】<br>
+          地域包括支援センター細江 月〜金 午前8時30分〜午後5時15分<br>
+          電話：053-528-2288, FAX：053-542-2839<br><br>
+          ※なお、掲載しているサロンに関するお問い合わせは、以下までお願いします。<br>
+          引佐地区社会福祉協議会 月～金 午前10時～午後3時<br>電話/FAX：053-542-3206</p>
+  </div>
+  <a id="to-map" href="./map.html">はじめる</a>
 
-    <footer>
-        <small>Copyright&copy; 2020-2021 地域包括支援センター細江 All Rights Reserved.</small>
-    </footer>
+  <footer>
+      <small>Copyright&copy; 2020-2021 地域包括支援センター細江 All Rights Reserved.</small>
+  </footer>
 
 </body>
 </html>
