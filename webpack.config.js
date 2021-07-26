@@ -6,7 +6,10 @@ const outputPath = path.resolve(__dirname, 'dist');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = {
+const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
+const smp = new SpeedMeasurePlugin();
+
+module.exports = smp.wrap({
   entry: {
     index: "./src/js/index.js",
     map: "./src/js/map.js",
@@ -107,4 +110,4 @@ module.exports = {
     open: true  // サーバー起動時にブラウザも開きなさいという意味。実行時にブラウザが自動的に localhost を開く。
   },
   devtool: 'eval-source-map' // ソースマップの品質を指定（デフォルトはeval）
-};
+});
