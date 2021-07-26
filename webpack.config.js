@@ -7,101 +7,104 @@ const outputPath = path.resolve(__dirname, 'dist');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: {
-        index: "./src/js/index.js",
-        map: "./src/js/map.js",
-        detail: "./src/js/detail.js",
-        list: "./src/js/list.js"
-    },
-    output: {
-        path: `${__dirname}/dist`,
-        filename: "[name].bundle.js",
-        // assetModuleFilename: 'src/img/[name][ext]'
-    },
-    // optimization: {
-    //     splitChunks: {
-    //         name: "commonlib",
-    //         chunks: "initial"
-    //     }
-    // },
-    mode: MODE,
+  entry: {
+    index: "./src/js/index.js",
+    map: "./src/js/map.js",
+    detail: "./src/js/detail.js",
+    list: "./src/js/list.js"
+  },
+  output: {
+    path: `${__dirname}/dist`,
+    filename: "[name].bundle.js",
+    // assetModuleFilename: 'src/img/[name][ext]'
+  },
+  optimization: {
+    splitChunks: {
+      name: "commonlib",
+      chunks: "initial"
+    }
+  },
+  mode: MODE,
 
-    module: {
-        rules: [
-            {
-                test: /\.ejs$/,
-                use: [
-                    "html-loader",
-                    "ejs-plain-loader"
-                ]
+  module: {
+    rules: [
+      {
+        test: /\.ejs$/,
+        exclude: /node_modules/,
+        use: [
+          "html-loader",
+          "ejs-plain-loader"
+        ]
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: "babel-loader",
+            options: {
+              presets: [
+                "@babel/preset-env"
+              ],
             },
-            {
-                test: /\.js$/, // 対象となるファイルの拡張子
-                use: [
-                    {
-                        loader: "babel-loader",
-                        options: {
-                            presets: [
-                                "@babel/preset-env" // プリセットを指定することで、ES2020 を ES5 に変換
-                            ],
-                        },
-                    },
-                ],
-            },
-            // {
-            //     test: /\.(png|gif)$/,
-            //     type: 'asset/resource'
-            // },
-            {
-                test: /\.scss$/, // 対象となるファイルの拡張子
-                use: [
-                    "style-loader",  // linkタグに出力するためのローダー
-                    {  // CSSをバンドルするためのローダー
-                        loader: "css-loader",
-                        options: {
-                            url: false, // オプションでCSS内のurl()メソッドの取り込みを禁止する
-                            sourceMap: enabledSourceMap, // ソースマップの利用有無
-                            importLoaders: 2 // 0 => no loaders (default); 1 => postcss-loader; 2 => postcss-loader, sass-loader
-                        }
-                    },
-                    {  // SassをCSSにコンパイルするためのローダー
-                        loader: "sass-loader",
-                        options: {
-                            sourceMap: enabledSourceMap // ソースマップの利用有無
-                        },
-                    },
-                ],
-            },
+          },
         ],
-    },
-
-    plugins: [
-        new HtmlWebpackPlugin({
-            filename: 'index.html',
-            template:  './src/ejs/index.ejs',
-            chunks: ['index']
-        }),
-        new HtmlWebpackPlugin({
-            filename: 'map.html',
-            template:  './src/ejs/map.ejs',
-            chunks: ['map']
-        }),
-        new HtmlWebpackPlugin({
-            filename: 'detail.html',
-            template:  './src/ejs/detail.ejs',
-            chunks: ['detail']
-        }),
-        new HtmlWebpackPlugin({
-            filename: 'list.html',
-            template:  './src/ejs/list.ejs',
-            chunks: ['list']
-        }),
+      },
+      // {
+      //   test: /\.(png|gif)$/,
+      //   type: 'asset/resource'
+      // },
+      {
+        test: /\.scss$/,
+        exclude: /node_modules/,
+        use: [
+          "style-loader",  // linkタグに出力するためのローダー
+          {  // CSSをバンドルするためのローダー
+            loader: "css-loader",
+            options: {
+              url: false, // オプションでCSS内のurl()メソッドの取り込みを禁止する
+              sourceMap: enabledSourceMap,
+              importLoaders: 2 // 0 => no loaders (default); 1 => postcss-loader; 2 => postcss-loader, sass-loader
+            }
+          },
+          {  // SassをCSSにコンパイルするためのローダー
+            loader: "sass-loader",
+            options: {
+              sourceMap: enabledSourceMap
+            },
+          },
+        ],
+      },
     ],
+  },
 
-    // target: ["web", "es5"], // ES5(IE11等)向けの指定
-    devServer: { // ローカル開発用環境を立ち上げる
-        contentBase: outputPath,
-        open: true  // サーバー起動時にブラウザも開きなさいという意味。実行時にブラウザが自動的に localhost を開く。
-    },
-    devtool: 'eval-source-map' // ソースマップの品質を指定（デフォルトはeval）
+  plugins: [
+      new HtmlWebpackPlugin({
+          filename: 'index.html',
+          template:  './src/ejs/index.ejs',
+          chunks: ['index']
+      }),
+      new HtmlWebpackPlugin({
+          filename: 'map.html',
+          template:  './src/ejs/map.ejs',
+          chunks: ['map']
+      }),
+      new HtmlWebpackPlugin({
+          filename: 'detail.html',
+          template:  './src/ejs/detail.ejs',
+          chunks: ['detail']
+      }),
+      new HtmlWebpackPlugin({
+          filename: 'list.html',
+          template:  './src/ejs/list.ejs',
+          chunks: ['list']
+      }),
+  ],
+
+  // target: ["web", "es5"], // ES5(IE11等)向けの指定
+  devServer: {
+    contentBase: outputPath,
+    open: true  // サーバー起動時にブラウザも開きなさいという意味。実行時にブラウザが自動的に localhost を開く。
+  },
+  devtool: 'eval-source-map' // ソースマップの品質を指定（デフォルトはeval）
 };
