@@ -1,8 +1,8 @@
 import "core-js/stable";
 import "regenerator-runtime/runtime";
-import $ from "jquery";
-import { hamburger } from "./hamburger";
 import { endLoading } from "./endLoading";
+import { slideToggle } from "./slideToggle";
+import { hamburger } from "./hamburger";
 import "../scss/list.scss";
 
 let jsonArray;
@@ -17,7 +17,6 @@ getJson()
         jsonArray = data;
         let readResultUl = '';
         for(let h = 0; h < jsonArray.length; h++) {
-            // readResultUl += `<h2>${sheet_name_list[h]}</h2><ul style="margin: 0 20px 70px 20px;">`;
             readResultUl += `<h2 class="ac-title">${jsonArray[h][0]['社会資源の種類']}</h2><div class="ac-content"><ul>`;
             for(let i = 0; i < jsonArray[h].length; i++) {
                 readResultUl += `<li><b>${jsonArray[h][i]['名称']}</b>`;
@@ -28,12 +27,13 @@ getJson()
             }
             readResultUl += '</ul></div>';
         }
-        document.getElementById('ac-container').innerHTML = readResultUl;
-        $(".ac-title").click(function() {
-            /* タップでコンテンツを開閉 */
-            $(this).next().slideToggle(400);
-            /* 矢印の向きを変更 */
-            $(this).toggleClass("open");
+        document.querySelector('#ac-container').innerHTML = readResultUl;
+
+        document.querySelectorAll('.ac-title').forEach(title => {
+            title.addEventListener('click', function() {
+                slideToggle(this.nextElementSibling, 600);
+                this.classList.toggle('open');
+            })
         });
     })
     .catch(err => {
