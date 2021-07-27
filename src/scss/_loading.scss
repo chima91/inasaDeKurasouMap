@@ -29,6 +29,17 @@
     left: 50%;
     transform : translate(-50%, -40%);
 }
+.fadeout {
+    animation : fadeOut 500ms both;
+}
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
 
 @media (min-width: 768px) {
     #loadImg1 {

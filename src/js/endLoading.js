@@ -1,8 +1,7 @@
-import $ from "jquery";
-
 export function endLoading() {
-    // 0.5秒かけてロゴを非表示にし、その後0.3秒かけて背景を非表示にする。
-    $('#loading img, #loading p').fadeOut(500, function() {
-        $('#loading').fadeOut(300);
-    });
+  const load = document.querySelector('#loading');
+  load.classList.add('fadeout');
+  setTimeout(function() {
+    load.style.display = "none";
+  }, 500);
 }
