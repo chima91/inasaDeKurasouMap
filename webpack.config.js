@@ -6,10 +6,12 @@ const outputPath = path.resolve(__dirname, 'dist');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
-const smp = new SpeedMeasurePlugin();
+// const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
+// const smp = new SpeedMeasurePlugin();
 
-module.exports = smp.wrap({
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+
+module.exports = {
   entry: {
     index: "./src/js/index.js",
     map: "./src/js/map.js",
@@ -21,12 +23,12 @@ module.exports = smp.wrap({
     filename: "[name].bundle.js",
     // assetModuleFilename: 'src/img/[name][ext]'
   },
-  optimization: {
-    splitChunks: {
-      name: "commonlib",
-      chunks: "initial"
-    }
-  },
+  // optimization: {
+  //   splitChunks: {
+  //     name: "commonlib",
+  //     chunks: "initial"
+  //   }
+  // },
   mode: MODE,
 
   module: {
@@ -102,6 +104,7 @@ module.exports = smp.wrap({
           template:  './src/ejs/list.ejs',
           chunks: ['list']
       }),
+      new BundleAnalyzerPlugin()
   ],
 
   // target: ["web", "es5"], // ES5(IE11等)向けの指定
@@ -110,4 +113,4 @@ module.exports = smp.wrap({
     open: true  // サーバー起動時にブラウザも開きなさいという意味。実行時にブラウザが自動的に localhost を開く。
   },
   devtool: 'eval-source-map' // ソースマップの品質を指定（デフォルトはeval）
-});
+};
