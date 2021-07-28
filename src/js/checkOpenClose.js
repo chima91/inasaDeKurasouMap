@@ -1,12 +1,9 @@
-import $ from "jquery";
-
 export function checkOpenClose() {
-    $("#check-open-close").click(function() {
-        $(this).toggleClass("check-open-close");
-        if($(this).hasClass("check-open-close")) {
-            $(this).text('開く');
-        } else {
-            $(this).text('閉じる');
-        }
-    });
+  document.querySelector('#check-open-close').addEventListener('click', function() {
+    this.classList.toggle('check-open-close');
+
+    this.classList.contains('check-open-close')
+      ? this.textContent = '開く'
+      : this.textContent = '閉じる';
+  })
 }
