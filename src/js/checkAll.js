@@ -1,19 +1,15 @@
-import $ from "jquery";
 import { dekirukotoList } from "./dkrSearch";
 
+// すべて(介護・医療サービスのサブチェックも)にチェックを入れる関数
 export function checkAll() {
-    $("#check-all").on("click", function() {
-        for(let i = 0; i < dekirukotoList.length; i++) {
-            dekirukotoList[i].checked = true;
-        }
-        if($("#checkbox #check7").prop("checked")) {
-            $("#checkbox #sub-check").css({
-                "display":"block"
-            })
-        } else {
-            $("#checkbox #sub-check").css({
-                "display":"none"
-            })
-        }
-    })
+  document.querySelector('#check-all').addEventListener('click', function() {
+    for(let i = 0; i < dekirukotoList.length; i++) {
+      dekirukotoList[i].checked = true;
+    }
+
+    const check7 = document.querySelector('#check7');
+    const subCheck = document.querySelector('#sub-check');
+
+    check7.checked ? subCheck.style.display = 'block' : subCheck.style.display = 'none';
+  });
 }
