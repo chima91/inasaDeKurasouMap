@@ -2,6 +2,7 @@
 @use "reset";
 @use "header";
 @use "loading";
+@use "modal";
 
 #inasa-map {
     width: 100vw;
@@ -143,67 +144,6 @@
     border: solid 1px black;
 }
 
-/* アイコン凡例のモーダルここから */
-#modal-open-btn {
-    position: absolute;
-    bottom: 50px;
-    left: 10px;
-    background-color: white;
-    font-size: 14px;
-    padding: 3px 5px;
-    border-radius: 5px;
-    border: solid 1px black;
-}
-#modal-wrapper {
-    display: none;
-    z-index: -1;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    width: 100%;
-}
-#modal-bg {
-    background: rgba(10,30,10,0.9);
-    height: 100vh;
-    position: absolute;
-    width: 100%;
-}
-#modal-content {
-    background: #fff;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    width: 80%;
-    max-height: 350px;
-    overflow-y: scroll;
-    padding: 5px 15px 10px 15px;
-    font-size: 14px;
-}
-.modal-description {
-    font-size: 12px;
-    margin-top: 10px;
-}
-#modal-content ul {
-    margin: 10px 0 20px 0;
-}
-#modal-content ul .syurui-icon {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    margin-right: 11px;
-}
-.modal-close-btn {
-    color: white;
-    background-color: black;
-    padding: 3px 5px;
-    display: block;
-    width: 50px;
-    text-align: center;
-    margin: 5px auto;
-}
-/* アイコン凡例のモーダルここまで */
-
 footer {
     text-align: center;
     height: 30px;
@@ -250,14 +190,6 @@ footer {
     #current-location-button {
         bottom: 125px;
     }
-
-    #modal-open-btn {
-        bottom: 90px;
-    }
-    #modal-content {
-        max-height: initial;
-        max-height: auto;
-    }
 }
 
 @media (min-width: 1200px) {
@@ -267,8 +199,5 @@ footer {
 
     #current-location-button {
         bottom: 95px;
-    }
-    #modal-open-btn {
-        bottom: 60px;
     }
 }

@@ -1,18 +1,23 @@
-import $ from "jquery";
-
 export function modalToggle() {
-    $('#modal-open-btn').on('click',function() {
-        $('#modal-wrapper').fadeIn();
-        $('#modal-wrapper').css({
-            "z-index":"10"
-        });
-        return false;
+  const wrapper = document.querySelector('#modal-wrapper');
+
+  document.querySelector('#modal-open-btn').addEventListener('click', function(e) {
+    e.preventDefault();
+
+    wrapper.classList.remove('modal-fadeout');
+    wrapper.classList.add('modal-fadein');
+    wrapper.style.display = "block";
+  });
+
+  document.querySelectorAll('.modal-close').forEach(function(modal) {
+    modal.addEventListener('click', function(e) {
+      e.preventDefault();
+
+      wrapper.classList.remove('modal-fadein');
+      wrapper.classList.add('modal-fadeout');
+      setTimeout(function() {
+        wrapper.style.display = "none";
+      }, 500);
     });
-    $('.modal-close').on('click',function() {
-        $('#modal-wrapper').fadeOut();
-        $('#modal-wrapper').css({
-            "z-index":"-1"
-        });
-        return false;
-    });
+  })
 }
