@@ -1,15 +1,10 @@
-import $ from "jquery";
-
 export function subCheck() {
-    $("#check7").change(function() {
-        if($("#checkbox #check7").prop("checked")) {
-            $("#checkbox #sub-check").css({
-                "display":"block"
-            })
-        } else {
-            $("#checkbox #sub-check").css({
-                "display":"none"
-            })
-        }
-    });
+  const check7 = document.querySelector('#check7');
+  const subCheck = document.querySelector('#sub-check');
+
+  check7.addEventListener('change', function() {
+    check7.checked
+      ? subCheck.style.display = 'block'
+      : subCheck.style.display = 'none';
+  })
 }
