@@ -1,5 +1,5 @@
-import "core-js/stable";
-import "regenerator-runtime/runtime";
+// import "core-js/stable";
+// import "regenerator-runtime/runtime";
 import { endLoading } from "./endLoading";
 import { slideToggle } from "./slideToggle";
 import { hamburger } from "./hamburger";

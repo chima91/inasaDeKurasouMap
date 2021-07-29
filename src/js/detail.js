@@ -1,5 +1,5 @@
-import "core-js/stable";
-import "regenerator-runtime/runtime";
+// import "core-js/stable";
+// import "regenerator-runtime/runtime";
 import { hamburger } from "./hamburger";
 import { endLoading } from "./endLoading";
 import "../scss/detail.scss";

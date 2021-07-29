@@ -1,5 +1,5 @@
-import "core-js/stable";
-import "regenerator-runtime/runtime";
+// import "core-js/stable";
+// import "regenerator-runtime/runtime";
 import { hamburger } from "./hamburger";
 import { checkOpenClose } from "./checkOpenClose";
 import { checkAll } from "./checkAll";
