@@ -21,7 +21,7 @@ module.exports = {
   output: {
     path: `${__dirname}/dist`,
     filename: "[name].bundle.js",
-    // assetModuleFilename: 'src/img/[name][ext]'
+    assetModuleFilename: 'images/[name][ext]'
   },
   // optimization: {
   //   splitChunks: {
@@ -61,10 +61,10 @@ module.exports = {
           },
         ],
       },
-      // {
-      //   test: /\.(png|gif)$/,
-      //   type: 'asset/resource'
-      // },
+      {
+        test: /\.(png|gif)$/,
+        type: 'asset/resource'
+      },
       {
         test: /\.scss$/,
         exclude: /node_modules/,
