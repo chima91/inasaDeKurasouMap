@@ -29,6 +29,7 @@
     "ejs-plain-loader": "^1.4.1",
     "html-loader": "^2.1.2",
     "html-webpack-plugin": "^5.3.1",
+    "mini-css-extract-plugin": "^2.1.0",
     "regenerator-runtime": "^0.13.9",
     "sass": "^1.32.12",
     "sass-loader": "^11.0.1",

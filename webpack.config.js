@@ -5,6 +5,7 @@ const path = require('path');
 const outputPath = path.resolve(__dirname, 'dist');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 // const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 // const smp = new SpeedMeasurePlugin();
@@ -69,7 +70,8 @@ module.exports = {
         test: /\.scss$/,
         exclude: /node_modules/,
         use: [
-          "style-loader",  // linkタグに出力するためのローダー
+          MiniCssExtractPlugin.loader,
+          // "style-loader",  // linkタグに出力するためのローダー
           {  // CSSをバンドルするためのローダー
             loader: "css-loader",
             options: {
@@ -90,27 +92,30 @@ module.exports = {
   },
 
   plugins: [
-      new HtmlWebpackPlugin({
-          filename: 'index.html',
-          template:  './src/ejs/index.ejs',
-          chunks: ['index']
-      }),
-      new HtmlWebpackPlugin({
-          filename: 'map.html',
-          template:  './src/ejs/map.ejs',
-          chunks: ['map']
-      }),
-      new HtmlWebpackPlugin({
-          filename: 'detail.html',
-          template:  './src/ejs/detail.ejs',
-          chunks: ['detail']
-      }),
-      new HtmlWebpackPlugin({
-          filename: 'list.html',
-          template:  './src/ejs/list.ejs',
-          chunks: ['list']
-      }),
-      new BundleAnalyzerPlugin()
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].css'
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template:  './src/ejs/index.ejs',
+      chunks: ['index']
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'map.html',
+      template:  './src/ejs/map.ejs',
+      chunks: ['map']
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'detail.html',
+      template:  './src/ejs/detail.ejs',
+      chunks: ['detail']
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'list.html',
+      template:  './src/ejs/list.ejs',
+      chunks: ['list']
+    }),
+    new BundleAnalyzerPlugin()
   ],
 
   // target: ["web", "es5"], // ES5(IE11等)向けの指定
