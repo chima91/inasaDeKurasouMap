@@ -6,7 +6,7 @@ export function getCurrentLocation() {
         if(!navigator.geolocation) return;
 
         let currentLocateImg = {
-            url: "../img/pin-icon/current-location.png",
+            url: "./img/pin-icon/current-location.png",
             scaledSize: new google.maps.Size(50, 50),
             labelOrigin: new google.maps.Point(24, 60)
         }
