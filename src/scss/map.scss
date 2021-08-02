@@ -22,118 +22,122 @@
     top: 85px;
     left: 15px;
     z-index: 1; /* 「現在地を取得」より前に出すため。 */
-}
-#checkbox #check-open-close {
-    background-color: white;
-    padding: 3px 5px;
-    border-radius: 5px;
-    border: solid 1px black;
-}
-/* チェックボックスのスタイルここから */
-#checkbox input[type="checkbox"] {
-    display: none;
-}
-#checkbox input[type="checkbox"]+label {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    padding-left: 20px;
-    padding-right: 10px;
-}
-#checkbox input[type="checkbox"]+label::before {
-    content: "";
-    position: absolute;
-    display: block;
-    box-sizing: border-box;
-    width: 15px;
-    height: 15px;
-    margin-top: -10px;
-    left: 0;
-    top: 50%;
-    border: 1px solid;
-    border-color:  #585753;
-    background-color: #FFF;
-}
-#checkbox input[type="checkbox"]:checked+label::after {
-    content: "";
-    position: absolute;
-    display: block;
-    box-sizing: border-box;
-    width: 12px;
-    height: 6px;
-    margin-top: -9px;
-    top: 60%;
-    left: 2px;
-    transform: rotate(-45deg);
-    border-bottom: 3px solid;
-    border-left: 3px solid;
-    border-color: #235523;
-}
-#checkbox input[id^="check7-"]:checked+label::after {
-    border-color: #ff66cc;
-}
-/* チェックボックスのスタイルここまで */
-#checkbox label {
-    display: inline-block;
-    margin: 4px 5px 5px 2px;
-}
-#checkbox #check-open-close.check-open-close ~ * {
-    display: none;
-}
-#checkbox input#acd-check, #checkbox input#acd-check+label::before, #checkbox input#acd-check:checked+label::after {
-    display: none;
-}
-#checkbox #acd-label {
-    background-color: white;
-    color: black;
-    padding: 3px 5px 3px 0;
-    border-radius: 5px;
-    margin: 0 7px;
-    border: solid 1px black;
-}
-#checkbox #acd-content {
-    height: 0;
-    opacity: 0;
-    visibility: hidden;
-    transition: .5s;
-}
-#checkbox #acd-check:checked + #acd-label + #acd-content {
-    height: 250px;
-    overflow-y: scroll;
-    opacity: 1;
-    visibility: visible;
-    margin-top: 15px;
-}
-#checkbox .check-all-none {
-    background-color: white;
-    padding: 3px 5px;
-    border-radius: 5px;
-    border: solid 1px black;
-}
-#checkbox #search-button {
-    display: block;
-    width: 100px;
-    text-align: center;
-    margin: 10px auto;
-    padding: 3px 5px;
-    color: white;
-    background-color: #457745;
-    border-color: solid 1px white;
-    border-radius: 5px;
-}
-#checkbox #hit-count {
-    margin: 12px 0 4px 0;
-}
-#checkbox #check-result {
-    max-height: 345px;
-    overflow-y: scroll;
-}
-#checkbox #acd-check:checked + label + div + p + hr + #check-result {
-    max-height: 80px;
+    #check-open-close {
+        cursor: pointer;
+        background-color: white;
+        padding: 3px 5px;
+        border-radius: 5px;
+        border: solid 1px black;
+    }
+    /* チェックボックスのスタイルここから */
+    input[type="checkbox"] {
+        display: none;
+    }
+    input[type="checkbox"]+label {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        padding-left: 20px;
+        padding-right: 10px;
+    }
+    input[type="checkbox"]+label::before {
+        content: "";
+        position: absolute;
+        display: block;
+        box-sizing: border-box;
+        width: 15px;
+        height: 15px;
+        margin-top: -10px;
+        left: 0;
+        top: 50%;
+        border: 1px solid;
+        border-color:  #585753;
+        background-color: #FFF;
+    }
+    input[type="checkbox"]:checked+label::after {
+        content: "";
+        position: absolute;
+        display: block;
+        box-sizing: border-box;
+        width: 12px;
+        height: 6px;
+        margin-top: -9px;
+        top: 60%;
+        left: 2px;
+        transform: rotate(-45deg);
+        border-bottom: 3px solid;
+        border-left: 3px solid;
+        border-color: #235523;
+    }
+    input[id^="check7-"]:checked+label::after {
+        border-color: #ff66cc;
+    }
+    /* チェックボックスのスタイルここまで */
+    label {
+        display: inline-block;
+        margin: 4px 5px 5px 2px;
+    }
+    #check-open-close.check-open-close ~ * {
+        display: none;
+    }
+    input#acd-check, input#acd-check+label::before, input#acd-check:checked+label::after {
+        display: none;
+    }
+    #acd-label {
+        background-color: white;
+        color: black;
+        padding: 3px 5px 3px 0;
+        border-radius: 5px;
+        margin: 0 7px;
+        border: solid 1px black;
+    }
+    #acd-content {
+        height: 0;
+        opacity: 0;
+        visibility: hidden;
+        transition: .5s;
+    }
+    #acd-check:checked + #acd-label + #acd-content {
+        height: 250px;
+        overflow-y: scroll;
+        opacity: 1;
+        visibility: visible;
+        margin-top: 15px;
+    }
+    .check-all-none {
+        cursor: pointer;
+        background-color: white;
+        padding: 3px 5px;
+        border-radius: 5px;
+        border: solid 1px black;
+    }
+    #search-button {
+        cursor: pointer;
+        display: block;
+        width: 100px;
+        text-align: center;
+        margin: 10px auto;
+        padding: 3px 5px;
+        color: white;
+        background-color: #457745;
+        border-color: solid 1px white;
+        border-radius: 5px;
+    }
+    #hit-count {
+        margin: 12px 0 4px 0;
+    }
+    #check-result {
+        max-height: 345px;
+        overflow-y: scroll;
+    }
+    #acd-check:checked + label + div + p + hr + #check-result {
+        max-height: 80px;
+    }
 }
 /* ここまで「できること」検索 */
 
 #current-location-button {
+    cursor: pointer;
     position: absolute;
     bottom: 85px;
     left: 10px;
