@@ -15,9 +15,9 @@
     background-color: rgba(0, 0, 0, 0.8);
     font-size: 14px;
     display: inline-block;
-    max-width: calc(100% - 40px); /* 両サイドに最低15px(+padding両サイド5px)の空白を作るため。 */
+    width: calc(100% - 46px); /* 両サイドに15px(+padding両サイド8px)の空白を作るため。 */
     max-height: 80%;
-    padding: 5px;
+    padding: 8px;
     position: absolute;
     top: 85px;
     left: 15px;
@@ -173,10 +173,10 @@ footer {
     /* ここから「できること」検索 */
     #checkbox {
         font-size: 18px;
-        max-width: 70%;
+        width: 415px;
     }
     #checkbox #acd-check:checked + #acd-label + #acd-content {
-        height: 280px;
+        height: 300px;
     }
     #checkbox #check-result {
         font-size: 16px;
